@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0.1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: bc25e657f6454764b87f61c68861cc51, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: ec98e4ebdd9098841aa572c44035b44e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.25
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.01654724, g: 0.010918354, b: 0.027018294, a: 0.25}
+  m_IndirectSpecularColor: {r: 0.015377012, g: 0.036885325, b: 0.060393218, a: 0.25}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -273,8 +273,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.73
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1204,8 +1204,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.64
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2798,8 +2798,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.75
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4114,8 +4114,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.7
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4422,8 +4422,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.75
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6271,8 +6271,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.61
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -9326,8 +9326,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1.5
-  m_Range: 3.918991
+  m_Intensity: 0.69
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -9668,8 +9668,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.64
+  m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -11150,8 +11150,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9225192, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.5
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -11274,8 +11274,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 8
+  m_Intensity: 0.73
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -12550,8 +12550,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9225192, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.5
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -12644,8 +12644,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.73
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -13501,8 +13501,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.5
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -13631,8 +13631,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 0.7
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -13947,8 +13947,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.88691026, b: 0.759434, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 0.7
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -14586,8 +14586,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9225192, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 8
+  m_Intensity: 0.5
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -17388,7 +17388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e86f43901c53e8944853012d98e5d8d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.760258
+      value: -47.84
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e86f43901c53e8944853012d98e5d8d9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18704,8 +18704,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 0.6
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -20180,8 +20180,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 8
+  m_Intensity: 0.73
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -20767,8 +20767,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.75
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -21985,8 +21985,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.7
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -22035,6 +22035,111 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &905092534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 905092538}
+  - component: {fileID: 905092537}
+  - component: {fileID: 905092536}
+  - component: {fileID: 905092535}
+  m_Layer: 0
+  m_Name: WOW_UN_CUBE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &905092535
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905092534}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &905092536
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905092534}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &905092537
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905092534}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &905092538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905092534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.3, y: 25.94, z: -20.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &910652945
 GameObject:
   m_ObjectHideFlags: 0
@@ -22868,8 +22973,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.94470173, b: 0.5801887, a: 1}
-  m_Intensity: 2
-  m_Range: 10
+  m_Intensity: 0.9
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -23466,8 +23571,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.75
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -24419,8 +24524,8 @@ Transform:
   m_GameObject: {fileID: 1014716255}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.49, y: 0.60889435, z: -16.24}
-  m_LocalScale: {x: 1.7, y: 0.6, z: 2.3}
+  m_LocalPosition: {x: -1.52, y: 0.60889435, z: -16.39}
+  m_LocalScale: {x: 1.75, y: 0.6, z: 2.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1076026084}
@@ -24843,8 +24948,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.64
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -25351,8 +25456,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.64
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -26080,7 +26185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.7
+      value: 15.93
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26088,7 +26193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.2
+      value: -20.61
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26382,7 +26487,7 @@ Transform:
   m_GameObject: {fileID: 1100938356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.51, y: 0.60889435, z: -2.63}
+  m_LocalPosition: {x: -21.14, y: 0.60889435, z: -2.63}
   m_LocalScale: {x: 2.2, y: 0.6, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26639,7 +26744,7 @@ Transform:
   m_GameObject: {fileID: 1111894472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.71, y: 0.60889435, z: 34.25}
+  m_LocalPosition: {x: -25.18, y: 0.60889435, z: 34.83}
   m_LocalScale: {x: 3, y: 0.6, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27019,8 +27124,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.75
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -27157,6 +27262,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b369a399505a0b843846fd05a6b96684, type: 3}
       propertyPath: m_Name
       value: MUR_PorteV1_KOT
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b369a399505a0b843846fd05a6b96684, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b369a399505a0b843846fd05a6b96684, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29938,8 +30047,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 0.7
+  m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -32192,8 +32301,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.88691026, b: 0.759434, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.5
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -33688,8 +33797,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 8
+  m_Intensity: 0.6
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -34761,7 +34870,7 @@ Transform:
   m_GameObject: {fileID: 1458212621}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 23.3, y: 0.60889435, z: -16.92}
+  m_LocalPosition: {x: 23.17, y: 0.60889435, z: -16.92}
   m_LocalScale: {x: 2.5, y: 0.6, z: 3.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35065,8 +35174,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 0.61
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -35249,7 +35358,7 @@ Transform:
   m_GameObject: {fileID: 1471914798}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.95, y: 0.60889435, z: 19.07}
+  m_LocalPosition: {x: 15.82, y: 0.60889435, z: 19.07}
   m_LocalScale: {x: 5.2, y: 0.6, z: 4.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35397,8 +35506,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 0.6
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -36576,8 +36685,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 6
+  m_Intensity: 0.64
+  m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -37897,8 +38006,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.61
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -38582,8 +38691,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.75
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -42325,8 +42434,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.6
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -43330,8 +43439,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 6
+  m_Intensity: 0.67
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -43565,8 +43674,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 6
+  m_Intensity: 0.5
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -44270,8 +44379,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 0.7
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -44395,8 +44504,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 5
+  m_Intensity: 0.54
+  m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -45975,8 +46084,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.5
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -47474,8 +47583,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 8
+  m_Intensity: 0.61
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -49945,8 +50054,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9225192, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 8
+  m_Intensity: 0.5
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -51071,8 +51180,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 8
+  m_Intensity: 0.79
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -51165,8 +51274,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.58
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -51802,8 +51911,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 0.7
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -51935,8 +52044,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.64
+  m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -52579,8 +52688,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9244896, b: 0.7028302, a: 1}
-  m_Intensity: 1
-  m_Range: 7
+  m_Intensity: 0.58
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -52835,6 +52944,10 @@ PrefabInstance:
     - target: {fileID: 1147164463767993084, guid: 37d9bc96a4140c341af1c0cfb406e069, type: 3}
       propertyPath: m_Lightmapping
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147164463767993084, guid: 37d9bc96a4140c341af1c0cfb406e069, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2406626975815578678, guid: 37d9bc96a4140c341af1c0cfb406e069, type: 3}
       propertyPath: m_LocalScale.x
@@ -53106,3 +53219,4 @@ SceneRoots:
   - {fileID: 2054945775}
   - {fileID: 150563843}
   - {fileID: 6967338408505574060}
+  - {fileID: 905092538}
