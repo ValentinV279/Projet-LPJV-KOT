@@ -93,8 +93,9 @@ namespace ClockSample
 
         private void UpdateHands(Transform handHours, Transform handMinutes, float hour, float minute)
         {
-            if (handHours) handHours.localRotation = Quaternion.Euler(0f, 0f, hour * 30f + (minute / 60f) * 30f);
-            if (handMinutes) handMinutes.localRotation = Quaternion.Euler(0f, 0f, minute * 6f);
+            Quaternion baseRotation = Quaternion.Euler(-89.98f, 0f, 0f); // Conserver l'inclinaison initiale
+            if (handHours) handHours.localRotation = baseRotation * Quaternion.Euler(0f, -hour * 30f - (minute / 60f) * 30f, 0f);
+            if (handMinutes) handMinutes.localRotation = baseRotation * Quaternion.Euler(0f, -minute * 6f, 0f);
         }
 
         public bool ToggleClockState(int clockIndex)
@@ -156,8 +157,16 @@ namespace ClockSample
             float targetHour = MainClock.Instance.GetTargetHour();
             float targetMinute = MainClock.Instance.GetTargetMinute();
 
+            float actualHourAngle = handHours1.localRotation.eulerAngles.z;
+            float actualMinuteAngle = handMinutes1.localRotation.eulerAngles.z;
+
+
+            float detectedHour = Mathf.Round((actualHourAngle % 360f) / 30f);
+            float detectedMinute = Mathf.Round((actualMinuteAngle % 360f) / 6f);
+
+
             float targetTotalMinutes = targetHour * 60 + targetMinute;
-            float currentTotalMinutes = hour * 60 + minute;
+            float currentTotalMinutes = detectedHour * 60 + detectedMinute;
 
             float difference = Mathf.Min(
                 Mathf.Abs(targetTotalMinutes - currentTotalMinutes),
@@ -169,7 +178,7 @@ namespace ClockSample
             if (isSuccess)
             {
                 successSound?.Play();
-                CompleteClock(clockIndex); // Marquer l'horloge comme complétée
+                CompleteClock(clockIndex);
             }
             else
             {
@@ -177,7 +186,9 @@ namespace ClockSample
                 StartCoroutine(HighlightSpotlight(Color.red));
             }
 
-            Debug.Log($"Heure cible définie : {Mathf.Floor(targetHour)}:{Mathf.Floor(targetMinute)} | Heure arrêtée : {Mathf.Floor(hour)}:{Mathf.Floor(minute)} | Différence : {difference} minutes");
+            Debug.Log($"Horloge arrêtée à : {detectedHour}:{detectedMinute}"); // Ajout Debug
+            Debug.Log($"Heure cible définie : {Mathf.Floor(targetHour)}:{Mathf.Floor(targetMinute)} | Heure arrêtée : {Mathf.Floor(detectedHour)}:{Mathf.Floor(detectedMinute)} | Différence : {difference} minutes");
+
         }
 
         private void CompleteClock(int clockIndex)

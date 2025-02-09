@@ -37,17 +37,21 @@ namespace ClockSample
             float handRotationHours = targetHour * 30 + (targetMinute / 60f) * 30; // 360/12
             float handRotationMinutes = targetMinute * 6; // 360/60
 
+            // Conserver l'inclinaison initiale de l'objet
+            Quaternion baseRotation = Quaternion.Euler(-89.98f, 0f, 0f);
+
             // Application des rotations aux aiguilles
             if (handHours)
             {
-                handHours.localEulerAngles = new Vector3(0, 0, handRotationHours);
+                handHours.localRotation = baseRotation * Quaternion.Euler(0f, -handRotationHours, 0f);
             }
 
             if (handMinutes)
             {
-                handMinutes.localEulerAngles = new Vector3(0, 0, handRotationMinutes);
+                handMinutes.localRotation = baseRotation * Quaternion.Euler(0f, -handRotationMinutes, 0f);
             }
         }
+
 
         // Méthodes pour récupérer les heures
         public float GetTargetHour() => targetHour;
