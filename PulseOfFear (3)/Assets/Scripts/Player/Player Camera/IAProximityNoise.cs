@@ -5,7 +5,7 @@ public class IAProximityNoise : MonoBehaviour
 {
     [SerializeField] private GameObject enemy; // L'IA ennemie
     [SerializeField] private float maxDistance = 5f; // Distance maximale où l'effet commence
-    [SerializeField] private float maxIntensity = 10f; // Intensité maximale du Noise and Grain
+    [SerializeField] private float maxIntensity = 20f; // Intensité maximale du Noise and Grain
     private NoiseAndGrain noiseAndGrain;
 
     void Start()
