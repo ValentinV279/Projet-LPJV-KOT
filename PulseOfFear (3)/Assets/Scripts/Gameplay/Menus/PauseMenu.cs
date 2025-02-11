@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject puzzleCanvas; // Canvas des puzzles
     public AudioListener playerAudioListener; // AudioListener du joueur
     public TMP_Text countdownText; // Texte du décompte
+    public Animator playerAnimator; // Référence à l'Animator du joueur
 
     private bool isPaused = false; // État du jeu (en pause ou non)
     private bool isCountingDown = false; // Empêche de rouvrir le menu pendant le décompte
@@ -82,6 +83,12 @@ public class PauseMenu : MonoBehaviour
         if (isPaused)
         {
             puzzleCanvas.SetActive(false);
+        }
+
+        // Désactive l'Animator du joueur si le jeu est en pause
+        if (playerAnimator != null)
+        {
+            playerAnimator.enabled = !isPaused;
         }
 
         // Met le jeu en pause ou le relance
