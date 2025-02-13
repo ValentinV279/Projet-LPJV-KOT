@@ -21,6 +21,8 @@ TagManager:
   - Room
   - ExitRightDoor
   - ExitLeftDoor
+  - EndLevel
+  - SpecialDoor
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - Water
   - UI
   - Knockable
-  - 
+  - interactableLayer
   - 
   - 
   - 
