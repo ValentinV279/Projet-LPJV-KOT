@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InteractionHighlighter : MonoBehaviour
 {
-    public float interactionDistance = 3f;
+    public float interactionDistance = 5f; //test
     public LayerMask interactableLayer;
     public LayerMask obstacleLayer; // Ajout du layer pour les obstacles
 
