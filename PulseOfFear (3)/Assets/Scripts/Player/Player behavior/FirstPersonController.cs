@@ -94,7 +94,16 @@ public class FirstPersonController : MonoBehaviour
         float moveX = Input.GetAxis("JoystickHorizontal") + Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("JoystickVertical") + Input.GetAxis("Vertical");
 
+        // Créer le vecteur de mouvement
         Vector3 targetVelocity = new Vector3(moveX, 0, moveZ);
+
+        // Normaliser le vecteur de mouvement pour éviter l'augmentation de vitesse en diagonale
+        if (targetVelocity.magnitude > 1)
+        {
+            targetVelocity.Normalize();
+        }
+
+        // Appliquer la vitesse
         targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
 
         Vector3 velocity = rb.velocity;
@@ -104,6 +113,7 @@ public class FirstPersonController : MonoBehaviour
         velocityChange.y = 0;
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
     }
+
 
     private void CameraRotation()
     {
