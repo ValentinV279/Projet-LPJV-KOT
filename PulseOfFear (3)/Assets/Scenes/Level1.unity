@@ -26944,6 +26944,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2172258957935441554, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
+      propertyPath: maxLookAngle
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172258957935441554, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: footstepAudioSource
       value: 
       objectReference: {fileID: 1443146551}
@@ -27005,7 +27009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.07
+      value: 23.12
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27013,7 +27017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.52
+      value: -5.32
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalRotation.w
