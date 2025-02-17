@@ -73,6 +73,14 @@ public class IAEnemyMovement : MonoBehaviour
                         returningToSpawn = false;
                         ForceIdleState(true);
                     }
+
+                    // ✅ NOUVEAU : Vérification si le joueur redevient accessible
+                    if (IsPlayerAccessible())
+                    {
+                        returningToSpawn = false;
+                        agent.SetDestination(target.position);
+                        Debug.Log("L'IA a détecté que le joueur est accessible, retour au suivi !");
+                    }
                 }
                 else
                 {
@@ -102,6 +110,13 @@ public class IAEnemyMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool IsPlayerAccessible()
+    {
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(target.position, path);
+        return path.status == NavMeshPathStatus.PathComplete;
     }
 
     private IEnumerator InitialIdlePhase()
