@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
 
     private bool isPaused = false; // État du jeu (en pause ou non)
     private bool isCountingDown = false; // Empêche de rouvrir le menu pendant le décompte
+    private float timeSinceSceneStart = 0f; // Temps écoulé depuis le lancement de la scène
+    private bool canPause = false; // Permet ou non de mettre en pause
 
     void Start()
     {
@@ -63,8 +65,17 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
+        // Mets à jour le temps écoulé depuis le début de la scène
+        timeSinceSceneStart += Time.deltaTime;
+
+        // Permet de mettre en pause uniquement après 6 secondes
+        if (timeSinceSceneStart >= 6f)
+        {
+            canPause = true;
+        }
+
         // Vérifie si le joueur appuie sur Echap (clavier) ou sur le bouton pause de la manette via l'Input Manager
-        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && !isCountingDown)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && !isCountingDown && canPause)
         {
             TogglePauseMenu();
         }
@@ -144,7 +155,7 @@ public class PauseMenu : MonoBehaviour
         isCountingDown = false;
     }
 
-    public void ResumeGame() //Relancer le jeu
+    public void ResumeGame() // Relancer le jeu
     {
         // Méthode appelée via un bouton pour reprendre le jeu
         isPaused = false;

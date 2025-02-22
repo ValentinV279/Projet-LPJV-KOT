@@ -21,8 +21,9 @@ public class GameOverTimer : MonoBehaviour
     public GameObject puzzleCanvas;
     public GameObject settingsCanvas;
     public GameObject subtitlesCanvas;
-    
+
     public SubtitleManager subtitleManager;
+    public AudioSource gameOverMusic; // 🎵 Musique de Game Over
 
     private bool isGameOver = false;
     private Camera playerCamera;
@@ -34,7 +35,7 @@ public class GameOverTimer : MonoBehaviour
         if (gameOverText != null) gameOverText.gameObject.SetActive(false);
         if (additionalText != null) additionalText.gameObject.SetActive(false);
         if (restartButton != null) restartButton.SetActive(false);
-        
+
         if (timerText != null)
         {
             timerText.gameObject.SetActive(false); // Cache l'UI du timer au départ
@@ -49,7 +50,7 @@ public class GameOverTimer : MonoBehaviour
 
         // Démarrer le chronomètre et afficher l'UI progressivement
         StartCoroutine(StartLevelTimer());
-        StartCoroutine(FadeInTimerUI()); // Lancement du fondu après 3 secondes
+        StartCoroutine(FadeInTimerUI());
     }
 
     void Update()
@@ -67,13 +68,13 @@ public class GameOverTimer : MonoBehaviour
         while (timeRemaining > 0)
         {
             UpdateTimerUI(timeRemaining);
-            
+
             if (timeRemaining <= 60f && !subtitleDisplayed && subtitleManager != null)
             {
                 subtitleManager.ShowSubtitle("I don't have much time left !");
                 subtitleDisplayed = true;
             }
-            
+
             yield return new WaitForSeconds(1f);
             timeRemaining--;
         }
@@ -86,12 +87,12 @@ public class GameOverTimer : MonoBehaviour
 
     IEnumerator FadeInTimerUI()
     {
-        yield return new WaitForSeconds(5f); // Attendre 3 secondes avant l'affichage
+        yield return new WaitForSeconds(5f); // Attendre avant d'afficher le timer
 
         if (timerText != null)
         {
             timerText.gameObject.SetActive(true);
-            float fadeTime = 1.5f; // Durée du fondu
+            float fadeTime = 1.5f;
             float elapsedTime = 0f;
 
             while (elapsedTime < fadeTime)
@@ -101,7 +102,7 @@ public class GameOverTimer : MonoBehaviour
                 yield return null;
             }
 
-            timerText.alpha = 1f; // Assure que l'UI est complètement visible
+            timerText.alpha = 1f;
         }
     }
 
@@ -111,7 +112,7 @@ public class GameOverTimer : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(time / 60);
             int seconds = Mathf.FloorToInt(time % 60);
-            timerText.text = $"{minutes}:{seconds:D2}"; // Format MM:SS
+            timerText.text = $"{minutes}:{seconds:D2}";
         }
     }
 
@@ -119,7 +120,7 @@ public class GameOverTimer : MonoBehaviour
     {
         isGameOver = true;
 
-        if (timerText != null) timerText.gameObject.SetActive(false); // Cache le timer après le Game Over
+        if (timerText != null) timerText.gameObject.SetActive(false); // Cache le timer
 
         if (playerObject != null)
         {
@@ -159,6 +160,12 @@ public class GameOverTimer : MonoBehaviour
         if (restartButton != null)
         {
             restartButton.SetActive(true);
+        }
+
+        // 🎵 Jouer la musique de Game Over
+        if (gameOverMusic != null)
+        {
+            gameOverMusic.Play();
         }
 
         StartCoroutine(HandleGameOverEffects());
@@ -231,6 +238,12 @@ public class GameOverTimer : MonoBehaviour
         if (tonemapping != null)
         {
             tonemapping.exposureAdjustment = 0.001f;
+        }
+
+        // 🎵 Arrêter la musique de Game Over
+        if (gameOverMusic != null)
+        {
+            gameOverMusic.Stop();
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
