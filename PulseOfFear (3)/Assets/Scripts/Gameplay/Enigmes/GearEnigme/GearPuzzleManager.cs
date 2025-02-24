@@ -21,6 +21,10 @@ public class GearPuzzleManager : MonoBehaviour
     public TextMeshProUGUI collectGearsText; // Texte barré lorsqu'on collecte tous les engrenages
     public TextMeshProUGUI repairMachineText; // Texte barré lorsqu'on répare la machine
 
+    // Coche de validation dans l'UI
+    public Image collectGearsCheckmark; // Image de la coche pour collecter les engrenages
+    public Image repairMachineCheckmark; // Image de la coche pour réparer la machine
+
     private int collectedGears = 0; // Nombre d'engrenages collectés
     private int totalGears = 3; // Nombre total d'engrenages nécessaires
     private int activatedGears = 0; // Compteur des engrenages activés sur le panneau
@@ -38,6 +42,10 @@ public class GearPuzzleManager : MonoBehaviour
         // Désactiver l'affichage du nombre d'engrenages collectés au début
         if (gearCountText) gearCountText.gameObject.SetActive(false);
         if (gearImage) gearImage.gameObject.SetActive(false);
+
+        // Désactiver les coches de validation au début
+        if (collectGearsCheckmark) collectGearsCheckmark.gameObject.SetActive(false);
+        if (repairMachineCheckmark) repairMachineCheckmark.gameObject.SetActive(false);
 
         // Vérification des composants
         if (gearPanelAudioSource == null)
@@ -61,7 +69,7 @@ public class GearPuzzleManager : MonoBehaviour
         collectedGears++;
         UpdateGearUI();
         Debug.Log($"Engrenage collecté ! Total : {collectedGears}/{totalGears}");
-        
+
         // Jouer le son de collecte d'engrenage
         if (gearPanelAudioSource != null && gearCollectSound != null)
         {
@@ -74,6 +82,12 @@ public class GearPuzzleManager : MonoBehaviour
             if (collectGearsText != null)
             {
                 collectGearsText.fontStyle = FontStyles.Strikethrough;
+                collectGearsText.color = Color.green; // Barrer le texte en vert
+
+                if (collectGearsCheckmark != null)
+                {
+                    collectGearsCheckmark.gameObject.SetActive(true); // Afficher la coche
+                }
             }
         }
     }
@@ -144,6 +158,12 @@ public class GearPuzzleManager : MonoBehaviour
             if (repairMachineText != null)
             {
                 repairMachineText.fontStyle = FontStyles.Strikethrough;
+                repairMachineText.color = Color.green; // Barrer le texte en vert
+
+                if (repairMachineCheckmark != null)
+                {
+                    repairMachineCheckmark.gameObject.SetActive(true); // Afficher la coche
+                }
             }
         }
     }
