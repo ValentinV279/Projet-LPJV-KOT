@@ -14055,6 +14055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThirdClock
       objectReference: {fileID: 0}
+    - target: {fileID: 2949836179272396179, guid: fe7c9eae1c03a6242a5cf38a5aebfe4c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01f31d70634be7a4baf25ce82768a7c8, type: 2}
     - target: {fileID: 7469710701579500631, guid: fe7c9eae1c03a6242a5cf38a5aebfe4c, type: 3}
       propertyPath: m_Name
       value: aiguilles_minutes3
@@ -29344,6 +29348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecondClock
       objectReference: {fileID: 0}
+    - target: {fileID: 2949836179272396179, guid: fe7c9eae1c03a6242a5cf38a5aebfe4c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01f31d70634be7a4baf25ce82768a7c8, type: 2}
     - target: {fileID: 7469710701579500631, guid: fe7c9eae1c03a6242a5cf38a5aebfe4c, type: 3}
       propertyPath: m_Name
       value: aiguilles_minutes2
@@ -42724,6 +42732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstClock
       objectReference: {fileID: 0}
+    - target: {fileID: 2949836179272396179, guid: fe7c9eae1c03a6242a5cf38a5aebfe4c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01f31d70634be7a4baf25ce82768a7c8, type: 2}
     - target: {fileID: 7469710701579500631, guid: fe7c9eae1c03a6242a5cf38a5aebfe4c, type: 3}
       propertyPath: m_Name
       value: aiguilles_minutes1
