@@ -26,12 +26,6 @@ public class FirstPersonController : MonoBehaviour
     private bool isGrounded = false;
     private float stepTimer = 0f;
 
-    private float currentYaw = 0.0f;
-    private float currentPitch = 0.0f;
-    private float smoothTime = 0.1f;
-    private float yawVelocity = 0.0f;
-    private float pitchVelocity = 0.0f;
-
     private Animator animator;
 
     void Awake()
@@ -114,7 +108,6 @@ public class FirstPersonController : MonoBehaviour
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
-
     private void CameraRotation()
     {
         // Rotation caméra à la souris
@@ -133,11 +126,9 @@ public class FirstPersonController : MonoBehaviour
         pitch -= verticalRotation;
         pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
 
-        currentYaw = Mathf.SmoothDamp(currentYaw, yaw, ref yawVelocity, smoothTime);
-        currentPitch = Mathf.SmoothDamp(currentPitch, pitch, ref pitchVelocity, smoothTime);
-
-        transform.localEulerAngles = new Vector3(0, currentYaw, 0);
-        playerCamera.transform.localEulerAngles = new Vector3(currentPitch, 0, 0);
+        // Applique immédiatement les rotations sans lissage
+        transform.localEulerAngles = new Vector3(0, yaw, 0);
+        playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
     }
 
     private void CheckGround()

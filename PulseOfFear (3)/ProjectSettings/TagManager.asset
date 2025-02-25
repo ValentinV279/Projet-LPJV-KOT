@@ -23,6 +23,7 @@ TagManager:
   - ExitLeftDoor
   - EndLevel
   - SpecialDoor
+  - Paper
   layers:
   - Default
   - TransparentFX

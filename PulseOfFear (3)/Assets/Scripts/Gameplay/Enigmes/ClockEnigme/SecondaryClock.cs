@@ -93,9 +93,16 @@ namespace ClockSample
 
         private void UpdateHands(Transform handHours, Transform handMinutes, float hour, float minute)
         {
-            if (handHours) handHours.localRotation = Quaternion.Euler(0f, 0f, hour * 30f + (minute / 60f) * 30f);
-            if (handMinutes) handMinutes.localRotation = Quaternion.Euler(0f, 0f, minute * 6f);
+            // Rotation de base forcée : X = -90, Y = 90, sans rotation sur Z
+            Quaternion defaultRotation = Quaternion.Euler(0f, -90f, -90f);
+
+            // Appliquer la rotation calculée uniquement sur Z en la combinant à la rotation de base
+            if (handHours)
+                handHours.localRotation = defaultRotation * Quaternion.Euler(0f, hour * 30f + (minute / 60f) * 30f, 0f);
+            if (handMinutes)
+                handMinutes.localRotation = defaultRotation * Quaternion.Euler(0f, minute * 6f, 0f);
         }
+
 
         public bool ToggleClockState(int clockIndex)
         {

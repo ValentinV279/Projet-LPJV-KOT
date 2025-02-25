@@ -61,7 +61,7 @@ public class SubtitleManager : MonoBehaviour
             }
             else if (other.gameObject.name == "PressurePlateSubtitleTrigger")
             {
-                ShowSubtitle("It seems I'm not heavy enough to activate this plate...");
+                ShowSubtitle("I see 2 pressure plates, something might happen when both are actived...");
             }
             else
             {
