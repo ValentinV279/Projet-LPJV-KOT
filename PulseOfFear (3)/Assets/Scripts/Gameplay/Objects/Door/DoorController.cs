@@ -57,7 +57,8 @@ public class DoorController : MonoBehaviour
 
             if (doorTaskText != null)
             {
-                doorTaskText.fontStyle = FontStyles.Strikethrough;
+                doorTaskText.fontStyle = FontStyles.Strikethrough; // Barrer le texte
+                doorTaskText.color = Color.green; // Mettre le texte en vert
             }
         }
     }

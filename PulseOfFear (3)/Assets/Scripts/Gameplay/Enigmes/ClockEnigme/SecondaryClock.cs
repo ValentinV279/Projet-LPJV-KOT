@@ -207,11 +207,14 @@ namespace ClockSample
             if (completedClocks == 3)
             {
                 SetSpotlightBlue();
-                subtitleManager?.ShowSubtitle("ca y est ! les horloges sont synchronisees");
+                subtitleManager?.ShowSubtitle("Ca y est ! Les horloges sont synchronisées");
                 TaskManager.Instance.CompleteTask();
+
+                // Ajout de la mise à jour du texte
                 if (puzzleText != null)
                 {
-                    puzzleText.fontStyle = FontStyles.Strikethrough;
+                    puzzleText.fontStyle = FontStyles.Strikethrough; // Barrer le texte
+                    puzzleText.color = Color.green; // Mettre le texte en vert
                 }
             }
             else
