@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChestController : MonoBehaviour
+public class DoorLeftController : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
@@ -10,15 +10,15 @@ public class ChestController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void ToggleChest()
+    public void ToggleDoor()
     {
         if (isOpen)
         {
-            animator.Play("Coffre_open");
+            animator.Play("Armoir_chambre_gauche_open");
         }
         else
         {
-            animator.Play("Coffre_close");
+            animator.Play("Armoir_chambre_gauche_close");
         }
         isOpen = !isOpen;
     }

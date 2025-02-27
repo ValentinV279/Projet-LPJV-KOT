@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public float interactionDistance = 3f; // Distance d'interaction avec l'objet
-    public LayerMask interactableLayer; // Layer des objets interactifs (tiroirs, coffres, etc.)
+    public float interactionDistance = 5f; // Distance d'interaction avec l'objet
+    public LayerMask interactableLayer; // Layer des objets interactifs (tiroirs, coffres, armoires, etc.)
 
     private Camera playerCamera;
 
@@ -29,30 +29,49 @@ public class PlayerInteraction : MonoBehaviour
         {
             Debug.Log("Objet interactif détecté : " + hit.collider.name);
 
-            // Vérifier s'il s'agit d'un tiroir
-            DrawerController drawer = hit.collider.GetComponent<DrawerController>();
-            if (drawer != null)
+            // Vérifie si l'objet a le Tag "Chest" (Coffre)
+            if (hit.collider.CompareTag("Chest"))
             {
-                Debug.Log("Tiroir détecté !");
-                drawer.ToggleDrawer(); // Ouvre/Ferme le tiroir
-                return; // Si c'est un tiroir, on arrête ici
+                ChestController chest = hit.collider.GetComponent<ChestController>();
+                if (chest != null)
+                {
+                    chest.ToggleChest(); // Ouvre/Ferme le coffre
+                }
             }
 
-            // Vérifier s'il s'agit d'un coffre
-            ChestController chest = hit.collider.GetComponent<ChestController>();
-            if (chest != null)
+            // Vérifie si l'objet a le Tag "Drawer" (Tiroir)
+            if (hit.collider.CompareTag("Drawer"))
             {
-                Debug.Log("Coffre détecté !");
-                chest.ToggleChest(); // Ouvre/Ferme le coffre
+                DrawerController drawer = hit.collider.GetComponent<DrawerController>();
+                if (drawer != null)
+                {
+                    drawer.ToggleDrawer(); // Ouvre/Ferme le tiroir
+                }
             }
-            else
+
+            // Vérifie si l'objet a le Tag "Wardrobe" (Armoire)
+            if (hit.collider.CompareTag("Wardrobe"))
             {
-                Debug.Log("Aucun tiroir ou coffre détecté.");
+                WardrobeController wardrobe = hit.collider.GetComponent<WardrobeController>();
+                if (wardrobe != null)
+                {
+                    wardrobe.ToggleWardrobe(); // Ouvre/Ferme l'armoire
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "DoorLeft" (Porte gauche)
+            if (hit.collider.CompareTag("DoorLeft"))
+            {
+                DoorLeftController doorLeft = hit.collider.GetComponent<DoorLeftController>();
+                if (doorLeft != null)
+                {
+                    doorLeft.ToggleDoor(); // Ouvre/Ferme la porte gauche
+                }
             }
         }
         else
         {
-            Debug.Log("Aucun objet interactif à portée.");
+            Debug.Log("Aucun objet interactif détecté.");
         }
     }
 
