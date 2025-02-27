@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestController : MonoBehaviour
+public class DrawerAtelier3 : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
@@ -10,15 +12,15 @@ public class ChestController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void ToggleChest()
+    public void ToggleAtelier3()
     {
         if (isOpen)
         {
-            animator.Play("Coffre_open");
+            animator.Play("Tiroir_atelier_open3");
         }
         else
         {
-            animator.Play("Coffre_close");
+            animator.Play("Tiroir_atelier_close3");
         }
         isOpen = !isOpen;
     }
