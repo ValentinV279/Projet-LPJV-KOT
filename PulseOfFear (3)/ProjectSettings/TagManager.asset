@@ -26,6 +26,9 @@ TagManager:
   - Paper
   - Wardrobe
   - DoorLeft
+  - TiroirAtelier3
+  - TiroirAtelier2
+  - TiroirAtelier1
   layers:
   - Default
   - TransparentFX

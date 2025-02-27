@@ -68,6 +68,68 @@ public class PlayerInteraction : MonoBehaviour
                     doorLeft.ToggleDoor(); // Ouvre/Ferme la porte gauche
                 }
             }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                DrawerAtelier3 TiroirAtelier3 = hit.collider.GetComponent<DrawerAtelier3>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.ToggleAtelier3(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier2"))
+            {
+                DrawerAtelier2 TiroirAtelier2 = hit.collider.GetComponent<DrawerAtelier2>();
+                if (TiroirAtelier2 != null)
+                {
+                    TiroirAtelier2.ToggleAtelier2(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier1"))
+            {
+                DrawerAtelier1 TiroirAtelier1 = hit.collider.GetComponent<DrawerAtelier1>();
+                if (TiroirAtelier1 != null)
+                {
+                    TiroirAtelier1.ToggleAtelier1(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier1"))
+            {
+                AtelierBureau1 TiroirAtelier1 = hit.collider.GetComponent<AtelierBureau1>();
+                if (TiroirAtelier1 != null)
+                {
+                    TiroirAtelier1.ToggleBureau1(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier2"))
+            {
+                AtelierBureau2 TiroirAtelier2 = hit.collider.GetComponent<AtelierBureau2>();
+                if (TiroirAtelier2 != null)
+                {
+                    TiroirAtelier2.ToggleBureau2(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                AtelierBureau3 TiroirAtelier3 = hit.collider.GetComponent<AtelierBureau3>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.ToggleBureau3(); // Ouvre/Ferme la porte gauche
+                }
+            }
         }
         else
         {
