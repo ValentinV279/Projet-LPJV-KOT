@@ -114,6 +114,7 @@ namespace ClockSample
                     {
                         StopCoroutine(clockCoroutine1);
                         isRunning1 = false;
+                        StartCoroutine(RestartClockAfterDelay(clockIndex));
                         CheckTime(currentHour1, currentMinute1, 0);
                     }
                     else
@@ -129,6 +130,7 @@ namespace ClockSample
                     {
                         StopCoroutine(clockCoroutine2);
                         isRunning2 = false;
+                        StartCoroutine(RestartClockAfterDelay(clockIndex));
                         CheckTime(currentHour2, currentMinute2, 1);
                     }
                     else
@@ -144,6 +146,7 @@ namespace ClockSample
                     {
                         StopCoroutine(clockCoroutine3);
                         isRunning3 = false;
+                        StartCoroutine(RestartClockAfterDelay(clockIndex));
                         CheckTime(currentHour3, currentMinute3, 2);
                     }
                     else
@@ -249,6 +252,36 @@ namespace ClockSample
                 case 1: return $"{Mathf.Floor(currentHour2)}:{Mathf.Floor(currentMinute2)}";
                 case 2: return $"{Mathf.Floor(currentHour3)}:{Mathf.Floor(currentMinute3)}";
                 default: return "Invalid Clock";
+            }
+        }
+
+        private IEnumerator RestartClockAfterDelay(int clockIndex)
+        {
+            yield return new WaitForSeconds(2f);
+
+            switch (clockIndex)
+            {
+                case 0:
+                    if (!isClock1Complete && !isRunning1)
+                    {
+                        clockCoroutine1 = StartCoroutine(UpdateClock1());
+                        isRunning1 = true;
+                    }
+                    break;
+                case 1:
+                    if (!isClock2Complete && !isRunning2)
+                    {
+                        clockCoroutine2 = StartCoroutine(UpdateClock2());
+                        isRunning2 = true;
+                    }
+                    break;
+                case 2:
+                    if (!isClock3Complete && !isRunning3)
+                    {
+                        clockCoroutine3 = StartCoroutine(UpdateClock3());
+                        isRunning3 = true;
+                    }
+                    break;
             }
         }
     }

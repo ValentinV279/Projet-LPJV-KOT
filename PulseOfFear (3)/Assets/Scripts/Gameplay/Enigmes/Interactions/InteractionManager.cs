@@ -103,14 +103,17 @@ public class InteractionManager : MonoBehaviour
                 gearPuzzleManager.InteractWithGearPanel();
             }
         }
+        if (Input.GetMouseButtonDown(0) && currentLeverIndex >= 0) ToggleClock(currentLeverIndex);
     }
 
     void HandleRaycast()
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
+        float currentRaycastDistance = Input.GetMouseButton(0) ? raycastDistance * 2f : raycastDistance;
 
-        if (Physics.Raycast(ray, out hit, raycastDistance))
+
+        if (Physics.Raycast(ray, out hit, currentRaycastDistance))
         {
             ResetInteractionState();
 
