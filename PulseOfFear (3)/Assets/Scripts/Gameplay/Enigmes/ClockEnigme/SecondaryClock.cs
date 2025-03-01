@@ -210,7 +210,7 @@ namespace ClockSample
             if (completedClocks == 3)
             {
                 SetSpotlightBlue();
-                subtitleManager?.ShowSubtitle("Ca y est ! Les horloges sont synchronisées");
+                subtitleManager?.ShowSubtitle("That's it! The clocks are synchronized");
                 TaskManager.Instance.CompleteTask();
 
                 // Ajout de la mise à jour du texte
@@ -238,11 +238,28 @@ namespace ClockSample
         {
             if (spotlight != null && completedClocks < 3) // Ne change pas si toutes les horloges sont complétées
             {
-                spotlight.color = color;
+                // Définition des couleurs douces
+                Color softRed = new Color(1f, 0.4f, 0.4f);
+                Color softGreen = new Color(0.5f, 1f, 0.5f);
+                Color softBlue = new Color(0.6f, 0.7f, 1f);
+
+                // Appliquer la couleur adoucie en fonction de l'entrée
+                if (color == Color.red) spotlight.color = softRed;
+                else if (color == Color.green) spotlight.color = softGreen;
+                else if (color == Color.blue) spotlight.color = softBlue;
+
                 yield return new WaitForSeconds(1f);
-                spotlight.color = Color.red; // Retour à la couleur par défaut
+
+                if (color == Color.red || color == Color.green) // Rouge ou vert redevient blanc après 2s
+                {
+                    yield return new WaitForSeconds(2f);
+                    spotlight.color = Color.white;
+                }
             }
         }
+
+
+
 
         public string GetClockTime(int clockIndex)
         {
