@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour
     private bool isCountingDown = false; // Empêche de rouvrir le menu pendant le décompte
     private float timeSinceSceneStart = 0f; // Temps écoulé depuis le lancement de la scène
     private bool canPause = false; // Permet ou non de mettre en pause
+    public MonoBehaviour cameraControlScript; // Référence au script qui gère la rotation de la caméra
+
 
     void Start()
     {
@@ -102,6 +104,9 @@ public class PauseMenu : MonoBehaviour
             playerAnimator.enabled = !isPaused;
         }
 
+        // Désactive le script de contrôle de la caméra lorsque le jeu est en pause
+        if (cameraControlScript != null) cameraControlScript.enabled = !isPaused;
+
         // Met le jeu en pause ou le relance
         Time.timeScale = isPaused ? 0 : 1;
 
@@ -153,6 +158,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isCountingDown = false;
+
+        // Réactive le contrôle de la caméra
+        StartCoroutine(EnableCameraControlWithDelay(3f));
     }
 
     public void ResumeGame() // Relancer le jeu
@@ -164,4 +172,13 @@ public class PauseMenu : MonoBehaviour
         puzzleCanvas.SetActive(true);
         StartCoroutine(ResumeWithCountdown());
     }
+
+    private IEnumerator EnableCameraControlWithDelay(float delay) //attendre 3sec avant de reactiver ce script
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
+        if (cameraControlScript != null)
+            cameraControlScript.enabled = true;
+    }
+
 }
