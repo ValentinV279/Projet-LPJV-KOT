@@ -19,6 +19,9 @@ public class FirstPersonController : MonoBehaviour
     public AudioClip[] footstepSounds;
     public float stepInterval = 0.5f;
 
+    public GameObject walkingArms;
+    public GameObject clappingArms;
+
     private Vector3 jointOriginalPos;
     private float timer = 0;
     private float yaw = 0.0f;
@@ -50,15 +53,21 @@ public class FirstPersonController : MonoBehaviour
         CameraRotation();
         CheckGround();
 
-        // Prise en charge des déplacements clavier + manette
         float moveX = Input.GetAxis("JoystickHorizontal") + Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("JoystickVertical") + Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveX, 0, moveZ);
         bool isWalking = movement.magnitude > 0 && isGrounded;
+        bool isClapping = Input.GetMouseButtonDown(0);
 
+        walkingArms.SetActive(isWalking && !isClapping);
+        clappingArms.SetActive(isClapping);
+        
         if (animator != null)
+        {
             animator.SetFloat("walk", isWalking ? 1 : 0);
+            if (isClapping) animator.SetTrigger("ClapTrigger");
+        }
 
         if (isWalking)
         {
@@ -88,16 +97,12 @@ public class FirstPersonController : MonoBehaviour
         float moveX = Input.GetAxis("JoystickHorizontal") + Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("JoystickVertical") + Input.GetAxis("Vertical");
 
-        // Créer le vecteur de mouvement
         Vector3 targetVelocity = new Vector3(moveX, 0, moveZ);
-
-        // Normaliser le vecteur de mouvement pour éviter l'augmentation de vitesse en diagonale
         if (targetVelocity.magnitude > 1)
         {
             targetVelocity.Normalize();
         }
 
-        // Appliquer la vitesse
         targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
 
         Vector3 velocity = rb.velocity;
@@ -110,15 +115,11 @@ public class FirstPersonController : MonoBehaviour
 
     private void CameraRotation()
     {
-        // Rotation caméra à la souris
         float lookXMouse = Input.GetAxis("Mouse X") * mouseSensitivity;
         float lookYMouse = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-        // Rotation caméra au stick droit
         float lookXController = Input.GetAxis("RightStickHorizontal") * controllerSensitivity;
         float lookYController = Input.GetAxis("RightStickVertical") * controllerSensitivity;
-
-        // Addition des mouvements souris + manette
+        
         float horizontalRotation = lookXMouse + lookXController;
         float verticalRotation = lookYMouse + lookYController;
 
@@ -126,7 +127,6 @@ public class FirstPersonController : MonoBehaviour
         pitch -= verticalRotation;
         pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
 
-        // Applique immédiatement les rotations sans lissage
         transform.localEulerAngles = new Vector3(0, yaw, 0);
         playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
     }

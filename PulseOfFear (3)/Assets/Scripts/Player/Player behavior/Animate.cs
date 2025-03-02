@@ -8,17 +8,14 @@ public class Animate : MonoBehaviour
     public AudioSource clapAudioSource; // Nouvelle AudioSource dédiée au clap
     public AudioClip clapSound; // Son du clap
 
-    private Animator animator;
+    public GameObject walkingArms;
+    public GameObject clappingArms;
+    public float clapDuration = 1f; // Durée pendant laquelle les bras de clap sont visibles
+
+    private Coroutine clapCoroutine;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
-
-        if (animator == null)
-        {
-            Debug.LogError("Aucun Animator trouvé sur cet objet.");
-        }
-
         if (clapAudioSource == null)
         {
             Debug.LogError("La référence 'clapAudioSource' n'est pas assignée dans l'Inspector.");
@@ -28,29 +25,41 @@ public class Animate : MonoBehaviour
         {
             Debug.LogWarning("Aucun son de clap assigné dans l'Inspector.");
         }
+
+        // Initialiser les modèles d'animation
+        walkingArms.SetActive(false);
+        clappingArms.SetActive(false);
     }
 
     void Update()
     {
-        // Vérifie l'entrée du clap via le clavier (Clic gauche) ou la manette (joystick button 6)
-        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Clap"))
+        bool isWalking = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
+        bool isClapping = Input.GetMouseButtonDown(0) || Input.GetButtonDown("Clap");
+
+        if (isClapping)
         {
-            PerformClap();
+            if (clapCoroutine != null)
+            {
+                StopCoroutine(clapCoroutine);
+            }
+            clapCoroutine = StartCoroutine(PerformClap());
+        }
+        else if (!clappingArms.activeSelf) // Ne réaffiche les bras de marche que si le clap n'est pas actif
+        {
+            walkingArms.SetActive(isWalking);
         }
     }
 
-    void PerformClap()
+    IEnumerator PerformClap()
     {
-        if (animator != null && animator.HasParameter("ClapTrigger"))
-        {
-            animator.SetTrigger("ClapTrigger");
-        }
-        else
-        {
-            Debug.LogError("Le paramètre 'ClapTrigger' est introuvable dans l'Animator.");
-        }
+        walkingArms.SetActive(false);
+        clappingArms.SetActive(true);
 
         PlayClapSound();
+        
+        yield return new WaitForSeconds(clapDuration);
+        
+        clappingArms.SetActive(false);
     }
 
     void PlayClapSound()
@@ -63,21 +72,5 @@ public class Animate : MonoBehaviour
         {
             Debug.LogWarning("Impossible de jouer le son du clap. Vérifiez que 'clapAudioSource' et 'clapSound' sont assignés.");
         }
-    }
-}
-
-// Vérification améliorée de l’existence du paramètre dans l’Animator
-public static class AnimatorExtensions
-{
-    public static bool HasParameter(this Animator animator, string paramName)
-    {
-        foreach (AnimatorControllerParameter param in animator.parameters)
-        {
-            if (param.name == paramName)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }
