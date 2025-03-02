@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DrawerAtelier2 : MonoBehaviour
+public class Armoirehallportegauche : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
@@ -12,7 +12,7 @@ public class DrawerAtelier2 : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void ToggleAtelier2()
+    public void ToggleArmoirhallLeft()
     {
         if (!isAnimating)
         {
@@ -26,11 +26,11 @@ public class DrawerAtelier2 : MonoBehaviour
 
         if (isOpen)
         {
-            animator.Play("Tiroir_atelier_close2");
+            animator.Play("armoirHallLeftclose");
         }
         else
         {
-            animator.Play("Tiroir_atelier_open2");
+            animator.Play("armoirHallLeftopen");
         }
 
         isOpen = !isOpen;

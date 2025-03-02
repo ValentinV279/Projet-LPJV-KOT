@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AtelierBureau1 : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
+    private bool isAnimating = false;
 
     void Start()
     {
@@ -14,14 +14,29 @@ public class AtelierBureau1 : MonoBehaviour
 
     public void ToggleBureau1()
     {
-        if (isOpen)
+        if (!isAnimating)
         {
-            animator.Play("Tiroir_bureau_open1");
+            StartCoroutine(PlayAnimation());
         }
-        else
+    }
+
+    private IEnumerator PlayAnimation()
+    {
+        isAnimating = true;
+
+        if (isOpen)
         {
             animator.Play("Tiroir_bureau_close1");
         }
+        else
+        {
+            animator.Play("Tiroir_bureau_open1");
+        }
+
         isOpen = !isOpen;
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        isAnimating = false;
     }
 }

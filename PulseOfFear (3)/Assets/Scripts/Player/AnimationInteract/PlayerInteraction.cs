@@ -130,6 +130,26 @@ public class PlayerInteraction : MonoBehaviour
                     TiroirAtelier3.ToggleBureau3(); // Ouvre/Ferme la porte gauche
                 }
             }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                DoorHall TiroirAtelier3 = hit.collider.GetComponent<DoorHall>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.ToggleArmoirhall(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                Armoirehallportegauche TiroirAtelier3 = hit.collider.GetComponent<Armoirehallportegauche>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.ToggleArmoirhallLeft(); // Ouvre/Ferme la porte gauche
+                }
+            }
         }
         else
         {

@@ -9080,7 +9080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7957971431713350910, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       propertyPath: m_TagString
-      value: WardrobeLeftDoor
+      value: TiroirAtelier3
       objectReference: {fileID: 0}
     - target: {fileID: -3780436063064438540, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       propertyPath: m_Name
@@ -9123,10 +9123,13 @@ PrefabInstance:
       addedObject: {fileID: 1809983891}
     - targetCorrespondingSourceObject: {fileID: -7957971431713350910, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1809983887}
+      addedObject: {fileID: 1809983886}
     - targetCorrespondingSourceObject: {fileID: -7957971431713350910, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1809983886}
+      addedObject: {fileID: 1809983894}
+    - targetCorrespondingSourceObject: {fileID: -7957971431713350910, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1809983893}
     - targetCorrespondingSourceObject: {fileID: -3780436063064438540, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       insertIndex: 1
       addedObject: {fileID: 355176052}
@@ -29435,7 +29438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.5
+      value: -5.24
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29443,7 +29446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27
+      value: -23.95
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalRotation.w
@@ -49337,26 +49340,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.009990004, y: 0.029499996, z: 0.00070475}
   m_Center: {x: 0.0049573025, y: 0.014736237, z: -0.00014764603}
---- !u!114 &1809983887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355176039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97f9ea9d266bb948ae909c977d96de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pivotPoint: {fileID: 1108196786}
-  rotationSpeed: 40
-  finalDecelerationFactor: 0.1
-  rotationDuration: 3
-  openAngle: -90
-  openSound: {fileID: 8300000, guid: 758aa1c88340adc45ab28e2666d1b277, type: 3}
-  closeSound: {fileID: 8300000, guid: 758aa1c88340adc45ab28e2666d1b277, type: 3}
-  audioSource: {fileID: 355176044}
 --- !u!114 &1809983891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49375,6 +49358,39 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &1809983893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355176039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67c3e7aa43d91c4fa21f7267c681445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1809983894
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355176039}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9aa14ec8046df75469c2ee9cf79b421d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1812973143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c52d6a110b95f249921cb2db2a3e079, type: 3}

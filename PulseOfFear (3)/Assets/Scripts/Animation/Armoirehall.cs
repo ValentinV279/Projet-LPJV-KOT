@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DrawerAtelier2 : MonoBehaviour
+public class DoorHall : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
@@ -12,7 +12,7 @@ public class DrawerAtelier2 : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void ToggleAtelier2()
+    public void ToggleArmoirhall()
     {
         if (!isAnimating)
         {
@@ -26,11 +26,11 @@ public class DrawerAtelier2 : MonoBehaviour
 
         if (isOpen)
         {
-            animator.Play("Tiroir_atelier_close2");
+            animator.Play("doorhallclose");
         }
         else
         {
-            animator.Play("Tiroir_atelier_open2");
+            animator.Play("doorhallopen");
         }
 
         isOpen = !isOpen;

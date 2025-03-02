@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class DoorLeftController : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
+    private bool isAnimating = false;
 
     void Start()
     {
@@ -12,14 +14,29 @@ public class DoorLeftController : MonoBehaviour
 
     public void ToggleDoor()
     {
-        if (isOpen)
+        if (!isAnimating)
         {
-            animator.Play("Armoir_chambre_gauche_open");
+            StartCoroutine(PlayAnimation());
         }
-        else
+    }
+
+    private IEnumerator PlayAnimation()
+    {
+        isAnimating = true;
+
+        if (isOpen)
         {
             animator.Play("Armoir_chambre_gauche_close");
         }
+        else
+        {
+            animator.Play("Armoir_chambre_gauche_open");
+        }
+
         isOpen = !isOpen;
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        isAnimating = false;
     }
 }

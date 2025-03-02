@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class WardrobeController : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
+    private bool isAnimating = false;
 
     void Start()
     {
@@ -12,14 +14,29 @@ public class WardrobeController : MonoBehaviour
 
     public void ToggleWardrobe()
     {
-        if (isOpen)
+        if (!isAnimating)
         {
-            animator.Play("Amoire_chambre_droite_open");
+            StartCoroutine(PlayAnimation());
         }
-        else
+    }
+
+    private IEnumerator PlayAnimation()
+    {
+        isAnimating = true;
+
+        if (isOpen)
         {
             animator.Play("Amoire_chambre_droite_close");
         }
+        else
+        {
+            animator.Play("Amoire_chambre_droite_open");
+        }
+
         isOpen = !isOpen;
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        isAnimating = false;
     }
 }

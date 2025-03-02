@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class DrawerController : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
+    private bool isAnimating = false;
 
     void Start()
     {
@@ -12,14 +14,29 @@ public class DrawerController : MonoBehaviour
 
     public void ToggleDrawer()
     {
-        if (isOpen)
+        if (!isAnimating)
         {
-            animator.Play("open_Tiroir");
+            StartCoroutine(PlayAnimation());
         }
-        else
+    }
+
+    private IEnumerator PlayAnimation()
+    {
+        isAnimating = true;
+
+        if (isOpen)
         {
             animator.Play("close_Tiroir");
         }
+        else
+        {
+            animator.Play("open_Tiroir");
+        }
+
         isOpen = !isOpen;
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        isAnimating = false;
     }
 }
