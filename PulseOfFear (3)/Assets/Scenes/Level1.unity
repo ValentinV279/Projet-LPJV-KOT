@@ -9092,7 +9092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3780436063064438540, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       propertyPath: m_TagString
-      value: WardrobeRightDoor
+      value: TiroirAtelier3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       propertyPath: m_Name
@@ -9135,10 +9135,13 @@ PrefabInstance:
       addedObject: {fileID: 355176052}
     - targetCorrespondingSourceObject: {fileID: -3780436063064438540, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 355176043}
+      addedObject: {fileID: 355176042}
     - targetCorrespondingSourceObject: {fileID: -3780436063064438540, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 355176042}
+      addedObject: {fileID: 355176057}
+    - targetCorrespondingSourceObject: {fileID: -3780436063064438540, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 355176056}
   m_SourcePrefab: {fileID: 100100000, guid: 4c72527a64329f14db7120e1d48bd522, type: 3}
 --- !u!4 &355176037 stripped
 Transform:
@@ -9186,26 +9189,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.009990005, y: 0.029499998, z: 0.00070474995}
   m_Center: {x: -0.005004308, y: 0.0147441095, z: -0.00014737766}
---- !u!114 &355176043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355176038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97f9ea9d266bb948ae909c977d96de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pivotPoint: {fileID: 1443019127}
-  rotationSpeed: 40
-  finalDecelerationFactor: 0.1
-  rotationDuration: 3
-  openAngle: 90
-  openSound: {fileID: 8300000, guid: 758aa1c88340adc45ab28e2666d1b277, type: 3}
-  closeSound: {fileID: 8300000, guid: 758aa1c88340adc45ab28e2666d1b277, type: 3}
-  audioSource: {fileID: 355176044}
 --- !u!82 &355176044
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9342,6 +9325,39 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &355176056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355176038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d449d592d0772248b9b3664ab4d725b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &355176057
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355176038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cc5a822224f2994abee1eba4c42f26e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &356152084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1414346046774573697, guid: fe7c9eae1c03a6242a5cf38a5aebfe4c, type: 3}
@@ -29438,7 +29454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.24
+      value: 22.93
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29446,7 +29462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.95
+      value: -23.62
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalRotation.w
@@ -57391,7 +57407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 209.3, y: -23.099884}
+  m_AnchoredPosition: {x: 208.8, y: -31.5}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.50000167, y: 0.5}
 --- !u!114 &2131689853
