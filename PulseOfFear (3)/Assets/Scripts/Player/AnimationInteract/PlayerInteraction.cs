@@ -150,6 +150,55 @@ public class PlayerInteraction : MonoBehaviour
                     TiroirAtelier3.ToggleArmoirhallLeft(); // Ouvre/Ferme la porte gauche
                 }
             }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                Commodehall TiroirAtelier3 = hit.collider.GetComponent<Commodehall>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.TogglecommodeHall1(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                Commodehall2 TiroirAtelier3 = hit.collider.GetComponent<Commodehall2>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.ToggleCommodeHall2(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                Commodehall3 TiroirAtelier3 = hit.collider.GetComponent<Commodehall3>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.ToggleCommodeHall3(); // Ouvre/Ferme la porte gauche
+                }
+            }
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                DoorHall TiroirAtelier3 = hit.collider.GetComponent<DoorHall>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.ToggleDoorHall(); // Ouvre/Ferme la porte gauche
+                }
+            }
+
+            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                DoorHall2 TiroirAtelier3 = hit.collider.GetComponent<DoorHall2>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.ToggleDoorHall2(); // Ouvre/Ferme la porte gauche
+                }
+            }
         }
         else
         {
