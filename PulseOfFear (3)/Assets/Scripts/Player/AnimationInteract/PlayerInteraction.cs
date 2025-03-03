@@ -27,9 +27,9 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer))
         {
-            Debug.Log("Objet interactif détecté : " + hit.collider.name);
+            Debug.Log("Objet interactif dï¿½tectï¿½ : " + hit.collider.name);
 
-            // Vérifie si l'objet a le Tag "Chest" (Coffre)
+            // Vï¿½rifie si l'objet a le Tag "Chest" (Coffre)
             if (hit.collider.CompareTag("Chest"))
             {
                 ChestController chest = hit.collider.GetComponent<ChestController>();
@@ -39,7 +39,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Drawer" (Tiroir)
+            // Vï¿½rifie si l'objet a le Tag "Drawer" (Tiroir)
             if (hit.collider.CompareTag("Drawer"))
             {
                 DrawerController drawer = hit.collider.GetComponent<DrawerController>();
@@ -49,7 +49,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Wardrobe" (Armoire)
+            // Vï¿½rifie si l'objet a le Tag "Wardrobe" (Armoire)
             if (hit.collider.CompareTag("Wardrobe"))
             {
                 WardrobeController wardrobe = hit.collider.GetComponent<WardrobeController>();
@@ -59,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "DoorLeft" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "DoorLeft" (Porte gauche)
             if (hit.collider.CompareTag("DoorLeft"))
             {
                 DoorLeftController doorLeft = hit.collider.GetComponent<DoorLeftController>();
@@ -69,7 +69,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 DrawerAtelier3 TiroirAtelier3 = hit.collider.GetComponent<DrawerAtelier3>();
@@ -79,7 +79,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier2"))
             {
                 DrawerAtelier2 TiroirAtelier2 = hit.collider.GetComponent<DrawerAtelier2>();
@@ -89,7 +89,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier1"))
             {
                 DrawerAtelier1 TiroirAtelier1 = hit.collider.GetComponent<DrawerAtelier1>();
@@ -101,7 +101,7 @@ public class PlayerInteraction : MonoBehaviour
 
 
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier1"))
             {
                 AtelierBureau1 TiroirAtelier1 = hit.collider.GetComponent<AtelierBureau1>();
@@ -111,7 +111,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier2"))
             {
                 AtelierBureau2 TiroirAtelier2 = hit.collider.GetComponent<AtelierBureau2>();
@@ -121,7 +121,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 AtelierBureau3 TiroirAtelier3 = hit.collider.GetComponent<AtelierBureau3>();
@@ -131,7 +131,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 DoorHall TiroirAtelier3 = hit.collider.GetComponent<DoorHall>();
@@ -141,7 +141,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 Armoirehallportegauche TiroirAtelier3 = hit.collider.GetComponent<Armoirehallportegauche>();
@@ -151,7 +151,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 Commodehall TiroirAtelier3 = hit.collider.GetComponent<Commodehall>();
@@ -161,7 +161,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 Commodehall2 TiroirAtelier3 = hit.collider.GetComponent<Commodehall2>();
@@ -171,7 +171,7 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 Commodehall3 TiroirAtelier3 = hit.collider.GetComponent<Commodehall3>();
@@ -180,7 +180,9 @@ public class PlayerInteraction : MonoBehaviour
                     TiroirAtelier3.ToggleCommodeHall3(); // Ouvre/Ferme la porte gauche
                 }
             }
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+
+            /*
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 DoorHall TiroirAtelier3 = hit.collider.GetComponent<DoorHall>();
@@ -189,8 +191,9 @@ public class PlayerInteraction : MonoBehaviour
                     TiroirAtelier3.ToggleDoorHall(); // Ouvre/Ferme la porte gauche
                 }
             }
+            */
 
-            // Vérifie si l'objet a le Tag "Atelier" (Porte gauche)
+            // Vï¿½rifie si l'objet a le Tag "Atelier" (Porte gauche)
             if (hit.collider.CompareTag("TiroirAtelier3"))
             {
                 DoorHall2 TiroirAtelier3 = hit.collider.GetComponent<DoorHall2>();
@@ -202,7 +205,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         else
         {
-            Debug.Log("Aucun objet interactif détecté.");
+            Debug.Log("Aucun objet interactif dï¿½tectï¿½.");
         }
     }
 
