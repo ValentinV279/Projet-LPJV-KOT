@@ -1,7 +1,7 @@
-/*using System.Collections;
+using System.Collections;
 using UnityEngine;
 
-public class DoorHall : MonoBehaviour
+public class DoorHall3 : MonoBehaviour
 {
     private Animator animator;
     private bool isOpen = false;
@@ -12,7 +12,7 @@ public class DoorHall : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void ToggleDoorHall()
+    public void ToggleDoorHall3()
     {
         if (!isAnimating)
         {
@@ -26,11 +26,11 @@ public class DoorHall : MonoBehaviour
 
         if (isOpen)
         {
-            animator.Play("doorhallopen");
+            animator.Play("doormanequinopen");
         }
         else
         {
-            animator.Play("doorhallclose");
+            animator.Play("doormanequinclose");
         }
 
         isOpen = !isOpen;
@@ -40,4 +40,3 @@ public class DoorHall : MonoBehaviour
         isAnimating = false;
     }
 }
-*/
