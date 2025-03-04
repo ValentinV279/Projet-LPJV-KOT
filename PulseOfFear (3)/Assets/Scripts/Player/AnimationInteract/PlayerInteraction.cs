@@ -221,6 +221,43 @@ public class PlayerInteraction : MonoBehaviour
                     TiroirAtelier3.Togglecoiffeuse(); // Ouvre/Ferme la porte gauche
                 }
             }
+
+            // V�rifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                coiffeuse1 TiroirAtelier3 = hit.collider.GetComponent<coiffeuse1>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.Togglecoiffeuse1(); // Ouvre/Ferme la porte gauche
+                }
+            }
+            // V�rifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                coiffeuse TiroirAtelier3 = hit.collider.GetComponent<coiffeuse>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.Togglecoiffeuse(); // Ouvre/Ferme la porte gauche
+                }
+            }
+            // V�rifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                coiffeuse2 TiroirAtelier3 = hit.collider.GetComponent<coiffeuse2>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.Togglecoiffeuse2(); // Ouvre/Ferme la porte gauche
+                }
+            }
+            // V�rifie si l'objet a le Tag "Atelier" (Porte gauche)
+            if (hit.collider.CompareTag("TiroirAtelier3"))
+            {
+                coiffeuse3 TiroirAtelier3 = hit.collider.GetComponent<coiffeuse3>();
+                if (TiroirAtelier3 != null)
+                {
+                    TiroirAtelier3.Togglecoiffeuse3(); // Ouvre/Ferme la porte gauche
+                }
+            }
         }
         else
         {
