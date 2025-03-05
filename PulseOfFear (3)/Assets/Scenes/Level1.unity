@@ -31129,7 +31129,6 @@ MonoBehaviour:
   settingsPanel: {fileID: 1730797953}
   reticleCanvas: {fileID: 767644113}
   puzzleCanvas: {fileID: 570451107}
-  playerAudioListener: {fileID: 0}
   countdownText: {fileID: 1312305979}
   playerAnimator: {fileID: 1443146558}
   cameraControlScript: {fileID: 389954864}
@@ -31454,7 +31453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704847019938842041, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4736377101356905886, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_Mass

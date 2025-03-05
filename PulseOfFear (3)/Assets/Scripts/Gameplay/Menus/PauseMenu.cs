@@ -8,7 +8,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsPanel; // Panel des paramètres
     public GameObject reticleCanvas; // Canvas du réticule
     public GameObject puzzleCanvas; // Canvas des puzzles
-    public AudioListener playerAudioListener; // AudioListener du joueur
     public TMP_Text countdownText; // Texte du décompte
     public Animator playerAnimator; // Référence à l'Animator du joueur
 
@@ -18,20 +17,12 @@ public class PauseMenu : MonoBehaviour
     private bool canPause = false; // Permet ou non de mettre en pause
     public MonoBehaviour cameraControlScript; // Référence au script qui gère la rotation de la caméra
 
-
     void Start()
     {
         // Vérifie que le panel est assigné
         if (settingsPanel == null)
         {
             Debug.LogError("Le panel des paramètres n'est pas assigné dans l'Inspector.");
-            return;
-        }
-
-        // Vérifie que l'AudioListener est assigné
-        if (playerAudioListener == null)
-        {
-            Debug.LogError("L'AudioListener du joueur n'est pas assigné dans l'Inspector.");
             return;
         }
 
@@ -110,9 +101,6 @@ public class PauseMenu : MonoBehaviour
         // Met le jeu en pause ou le relance
         Time.timeScale = isPaused ? 0 : 1;
 
-        // Active ou désactive l'AudioListener
-        playerAudioListener.enabled = !isPaused;
-
         // Gère l'état de la souris
         if (isPaused)
         {
@@ -129,9 +117,8 @@ public class PauseMenu : MonoBehaviour
     {
         isCountingDown = true;
 
-        // Désactive le ReticleCanvas, le PuzzleCanvas et l'AudioListener pendant le décompte
+        // Désactive le ReticleCanvas et le PuzzleCanvas pendant le décompte
         reticleCanvas.SetActive(false);
-        playerAudioListener.enabled = false;
 
         // Affiche le texte du décompte
         countdownText.gameObject.SetActive(true);
@@ -153,7 +140,6 @@ public class PauseMenu : MonoBehaviour
         settingsPanel.SetActive(false);
         reticleCanvas.SetActive(true);
         puzzleCanvas.SetActive(true);
-        playerAudioListener.enabled = true;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -173,12 +159,11 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(ResumeWithCountdown());
     }
 
-    private IEnumerator EnableCameraControlWithDelay(float delay) //attendre 3sec avant de reactiver ce script
+    private IEnumerator EnableCameraControlWithDelay(float delay) // Attendre 3sec avant de réactiver ce script
     {
         yield return new WaitForSecondsRealtime(delay);
 
         if (cameraControlScript != null)
             cameraControlScript.enabled = true;
     }
-
 }
