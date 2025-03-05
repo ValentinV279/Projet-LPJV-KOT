@@ -75,6 +75,7 @@ public class FirstPersonController : MonoBehaviour
             if (stepTimer >= stepInterval)
             {
                 PlayFootstepSound();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Alyssa/Charater_footsteps");
                 stepTimer = 0f;
             }
 
