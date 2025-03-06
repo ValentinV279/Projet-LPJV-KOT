@@ -62,6 +62,7 @@ public class InteractionManager : MonoBehaviour
             if (isLookingAtClapBook)
             {
                 TogglePreview();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_pick_up_book");
             }
             else if (currentDrawer != null)
             {
@@ -79,15 +80,25 @@ public class InteractionManager : MonoBehaviour
             {
                 currentDoor.ToggleDoor();
             }
-            else if (specialDoor != null && !hasShownSpecialDoorSubtitle)
+            else if (specialDoor != null && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Interact")))
             {
-                subtitleManager.ShowSubtitle("This door doesn't seem to open, so let's find a way");
-                hasShownSpecialDoorSubtitle = true;
+                if (!hasShownSpecialDoorSubtitle)
+                {
+                    subtitleManager.ShowSubtitle("This door doesn't seem to open, so let's find a way");
+                    hasShownSpecialDoorSubtitle = true;
+                }
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_locked_door", GetComponent<Transform>().position);
             }
-            else if (exitDoor != null && !hasShownExitDoorSubtitle)
+            else if (exitDoor != null && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Interact")))
             {
-                subtitleManager.ShowSubtitle("This door doesn't seem to open, so let's find a way");
-                hasShownExitDoorSubtitle = true;
+                if (!hasShownExitDoorSubtitle)
+                {
+                    subtitleManager.ShowSubtitle("This door doesn't seem to open, so let's find a way");
+                    hasShownExitDoorSubtitle = true;
+                }
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_locked_door", GetComponent<Transform>().position);
             }
             else if (currentLeverIndex >= 0)
             {
@@ -97,6 +108,7 @@ public class InteractionManager : MonoBehaviour
             {
                 gearPuzzleManager.CollectGear(currentGear);
                 currentGear = null;
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_pick_up_gear");
             }
             else if (isLookingAtGearPanel && gearPuzzleManager != null)
             {

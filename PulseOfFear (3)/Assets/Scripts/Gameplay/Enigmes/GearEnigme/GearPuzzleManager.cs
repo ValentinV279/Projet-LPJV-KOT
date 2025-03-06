@@ -124,16 +124,19 @@ public class GearPuzzleManager : MonoBehaviour
         {
             gear1.SetActive(true);
             Debug.Log("Premier engrenage activé.");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/System/Puzzle/Puz_rouage1");
         }
         else if (activatedGears == 2 && gear2 != null)
         {
             gear2.SetActive(true);
             Debug.Log("Deuxième engrenage activé.");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/System/Puzzle/Puz_rouage1");
         }
         else if (activatedGears == 3 && gear3 != null)
         {
             gear3.SetActive(true);
             Debug.Log("Troisième engrenage activé.");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/System/Puzzle/Puz_rouage3");
 
             if (spotlight != null)
             {
@@ -161,6 +164,7 @@ public class GearPuzzleManager : MonoBehaviour
                 repairMachineText.color = Color.green; // Barrer le texte en vert
 
                 if (repairMachineCheckmark != null)
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/System/Puzzle/Puz_rouage_success");
                 {
                     repairMachineCheckmark.gameObject.SetActive(true); // Afficher la coche
                 }

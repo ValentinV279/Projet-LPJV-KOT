@@ -133,6 +133,7 @@ namespace ClockSample
                         StopCoroutine(clockCoroutine1);
                         isRunning1 = false;
                         StartCoroutine(RestartClockAfterDelay(clockIndex));
+                        clockLoop1.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); // Arrêter le son en douceur
                         CheckTime(currentHour1, currentMinute1, 0);
                     }
                     else
@@ -149,6 +150,7 @@ namespace ClockSample
                         StopCoroutine(clockCoroutine2);
                         isRunning2 = false;
                         StartCoroutine(RestartClockAfterDelay(clockIndex));
+                        clockLoop2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                         CheckTime(currentHour2, currentMinute2, 1);
                     }
                     else
@@ -166,6 +168,7 @@ namespace ClockSample
                         isRunning3 = false;
                         StartCoroutine(RestartClockAfterDelay(clockIndex));
                         CheckTime(currentHour3, currentMinute3, 2);
+                        clockLoop3.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                     }
                     else
                     {
