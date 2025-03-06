@@ -18,8 +18,15 @@ public class IAEnemyMovement : MonoBehaviour
     private bool isAccelerating = false; // Pour éviter de relancer l'accélération pendant l'effet
     private bool isWaitingAtStart = true; // Indique si l'IA est en phase d'attente initiale
 
+    private FMOD.Studio.EventInstance presenceSound; // Instance FMOD pour le son Idle ///
+    private FMOD.Studio.EventInstance musicAutomate;
+
     void Start()
     {
+        presenceSound = FMODUnity.RuntimeManager.CreateInstance("event:/Units/Automate/Automate_presence");/// relie l'instance unity d'FMOD à son event
+        musicAutomate = FMODUnity.RuntimeManager.CreateInstance("event:/System/Music/Music_automate");/// relie l'instance unity d'FMOD à son event
+        presenceSound.start();
+        musicAutomate.start();///joue le son mié à l'instance unity d'FMOD à cet endroit du script
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
         enemyAudio = GetComponent<IAEnemyAudio>();
@@ -58,7 +65,17 @@ public class IAEnemyMovement : MonoBehaviour
 
     void Update()
     {
+
+        presenceSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));/// relie l'instance unity d'FMOD à un objet3D
+        musicAutomate.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));/// relie l'instance unity d'FMOD à un objet3D
+
         if (isWaitingAtStart) return;
+
+        if (hasCapturedPlayer)
+        {
+            presenceSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); /// Stop le son immédiatement si le joueur est capturé
+            musicAutomate.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
 
         if (!isDeactivated && !hasCapturedPlayer && agent != null)
         {
@@ -132,6 +149,9 @@ public class IAEnemyMovement : MonoBehaviour
         ForceIdleState(false);
 
         StartCoroutine(AccelerationRoutine());
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Automate/Automate_awake", GetComponent<Transform>().position);
+        presenceSound.start();///joue le son mié à l'instance unity d'FMOD à cet endroit du script
     }
 
     private void MoveToSpawn()
@@ -172,6 +192,8 @@ public class IAEnemyMovement : MonoBehaviour
             }
 
             StopMovement();
+            presenceSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); ///
+            musicAutomate.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); ///
         }
     }
 
@@ -184,6 +206,7 @@ public class IAEnemyMovement : MonoBehaviour
         {
             StopMovement();
             animator.SetBool("Desactivate", true);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Automate/Automate_stop", GetComponent<Transform>().position);
         }
         else
         {
@@ -262,6 +285,7 @@ public class IAEnemyMovement : MonoBehaviour
             animator.SetBool("Run", true);
             animator.SetBool("Walk", false);
             Debug.Log("L'IA est en accélération et passe en mode course !");
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Running", 1);
         }
 
         float duration = Random.Range(5f, 10f);
@@ -273,6 +297,7 @@ public class IAEnemyMovement : MonoBehaviour
             animator.SetBool("Run", false);
             animator.SetBool("Walk", true);
             Debug.Log("L'IA repasse en mode marche.");
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Running", 0);
         }
 
         isAccelerating = false;

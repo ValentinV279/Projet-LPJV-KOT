@@ -32,6 +32,25 @@ public class IAEnemyAudio : MonoBehaviour
         }
     }
 
+    void FmodEnemyStepShoe()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Automate/Automate_footstepshoe", GetComponent<Transform>().position);
+    }
+
+    void FmodEnemyStepMetal()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Automate/Automate_footstepmetal", GetComponent<Transform>().position);
+    }
+    void FmodEnemyStepMetalRun()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Automate/Automate_footstepmetalrun", GetComponent<Transform>().position);
+    }
+
+    void FmodEnemyStepShoeRun()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Automate/Automate_footstepshoerun", GetComponent<Transform>().position);
+    }
+
     /// <summary>
     /// Joue le son d'accélération.
     /// </summary>

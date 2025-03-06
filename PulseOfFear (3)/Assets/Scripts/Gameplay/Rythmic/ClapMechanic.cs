@@ -155,9 +155,12 @@ public class ClapMechanic : MonoBehaviour
             audioSource.PlayOneShot(successClapSound);
             clapScrollbar.value = 0;
             clapStep++;
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("ClapStep", clapStep);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Ui/Sys_ClapStep");
 
             if (clapStep >= clapPattern.Length) // Si tous les claps sont réussis
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Ui/Sys_ClapGood");
                 StartCoroutine(DeactivateEnemy());
                 ResetClapSequence();
             }
@@ -168,6 +171,7 @@ public class ClapMechanic : MonoBehaviour
         else // Clap échoué
         {
             StartCoroutine(HandleClapFail());
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Ui/Sys_ClapBad");
         }
     }
 

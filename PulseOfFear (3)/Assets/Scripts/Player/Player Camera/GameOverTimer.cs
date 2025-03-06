@@ -30,6 +30,11 @@ public class GameOverTimer : MonoBehaviour
     private MonoBehaviour cameraControlScript;
     private bool subtitleDisplayed = false;
 
+    private FMOD.Studio.EventInstance deathTimer; //
+    private FMOD.Studio.EventInstance automatStop; //
+    private FMOD.Studio.EventInstance snapDeath; //
+    private FMOD.Studio.EventInstance heartBeat; //
+
     void Start()
     {
         if (gameOverText != null) gameOverText.gameObject.SetActive(false);
@@ -51,6 +56,10 @@ public class GameOverTimer : MonoBehaviour
         // Démarrer le chronomètre et afficher l'UI progressivement
         StartCoroutine(StartLevelTimer());
         StartCoroutine(FadeInTimerUI());
+        deathTimer = FMODUnity.RuntimeManager.CreateInstance("event:/Ui/Ui_death_timer");///
+        automatStop = FMODUnity.RuntimeManager.CreateInstance("event:/System/Music/Music_time_death");///
+        snapDeath = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Snp_RestartDeath");///
+        heartBeat = FMODUnity.RuntimeManager.CreateInstance("event:/Units/Alyssa/Charater_damage_taken");///
     }
 
     void Update()
@@ -170,6 +179,10 @@ public class GameOverTimer : MonoBehaviour
 
         StartCoroutine(HandleGameOverEffects());
         StartCoroutine(RotateCameraDown());
+
+        deathTimer.start();
+        automatStop.start();
+        snapDeath.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     void MuteAllAudioExceptPlayerCameraAndParent()
@@ -234,6 +247,11 @@ public class GameOverTimer : MonoBehaviour
     {
         Debug.Log("Bouton cliqué ou Enter pressé !");
         Time.timeScale = 1f;
+
+        deathTimer.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        automatStop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        heartBeat.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        snapDeath.start();
 
         if (tonemapping != null)
         {

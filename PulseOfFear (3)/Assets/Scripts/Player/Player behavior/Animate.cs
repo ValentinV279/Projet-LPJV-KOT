@@ -37,9 +37,31 @@ public class Animate : MonoBehaviour
         }
     }
 
+    void FmodClap()
+        { 
+             FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Alyssa/Character_ability_clap");///
+        }
+
     void PlayClapSound()
     {
         if (clapAudioSource != null && clapSound != null)
             clapAudioSource.PlayOneShot(clapSound);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Alyssa/Character_ability_clap");
+    }
+}
+
+// Vérification améliorée de l’existence du paramètre dans l’Animator
+public static class AnimatorExtensions
+{
+    public static bool HasParameter(this Animator animator, string paramName)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == paramName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

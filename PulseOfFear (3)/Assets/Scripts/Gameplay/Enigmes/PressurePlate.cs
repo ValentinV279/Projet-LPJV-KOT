@@ -23,6 +23,7 @@ public class PressurePlate : MonoBehaviour
             isActivated = true;
             Debug.Log($"Un objet a activé la plaque de pression : {gameObject.name}");
             PlaySound(activateSound);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_dalle_on", GetComponent<Transform>().position);
         }
     }
 
@@ -34,6 +35,7 @@ public class PressurePlate : MonoBehaviour
             isActivated = false;
             Debug.Log($"Un objet a désactivé la plaque de pression : {gameObject.name}");
             PlaySound(deactivateSound);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_dalle_off", GetComponent<Transform>().position);
         }
     }
 

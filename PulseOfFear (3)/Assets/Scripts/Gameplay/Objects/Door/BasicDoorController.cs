@@ -72,6 +72,15 @@ public class BasicDoorController : MonoBehaviour
         // Inverse l'angle d'ouverture pour la prochaine interaction
         openAngle *= -1;
 
+        if (Mathf.Approximately(currentAngle, 0f))
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_interract_porte_open", GetComponent<Transform>().position);
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_interract_porte_close", GetComponent<Transform>().position);
+        }
+
         // Joue le son approprié via l'AudioSource
         PlaySound(Mathf.Approximately(currentAngle, 0f) ? openSound : closeSound);
 

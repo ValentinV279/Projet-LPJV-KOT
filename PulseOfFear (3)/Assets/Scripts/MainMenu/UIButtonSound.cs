@@ -22,6 +22,7 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickH
         if (hoverSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(hoverSound);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Ui/Click_menu");
         }
     }
 
@@ -30,6 +31,7 @@ public class UIButtonSound : MonoBehaviour, IPointerEnterHandler, IPointerClickH
         if (clickSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(clickSound);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Ui/Click_menu_start_game");
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using FMOD.Studio;
 
 namespace ClockSample
 {
@@ -25,6 +26,10 @@ namespace ClockSample
         private bool isClock1Complete = false, isClock2Complete = false, isClock3Complete = false; // Nouveaux états
         private int completedClocks = 0; // Compteur des horloges correctement définies
 
+        private EventInstance clockLoop1;
+        private EventInstance clockLoop2;
+        private EventInstance clockLoop3;
+
         public AudioSource successSound; // Son de succès
         public AudioSource failureSound; // Son d'échec
         public Light spotlight; // Spotlight à changer de couleur
@@ -32,7 +37,7 @@ namespace ClockSample
         public SubtitleManager subtitleManager; // Référence au SubtitleManager
         public TextMeshProUGUI puzzleText;
 
-        private const float marginMinutes = 10f; // Marge d'erreur de 10 minutes
+        private const float marginMinutes = 10f;
 
         private void Start()
         {
@@ -46,6 +51,19 @@ namespace ClockSample
             clockCoroutine1 = StartCoroutine(UpdateClock1());
             clockCoroutine2 = StartCoroutine(UpdateClock2());
             clockCoroutine3 = StartCoroutine(UpdateClock3());
+
+            clockLoop1 = FMODUnity.RuntimeManager.CreateInstance("event:/System/Puzzle/Puz_ClockLoop");
+            clockLoop2 = FMODUnity.RuntimeManager.CreateInstance("event:/System/Puzzle/Puz_ClockLoop");
+            clockLoop3 = FMODUnity.RuntimeManager.CreateInstance("event:/System/Puzzle/Puz_ClockLoop");
+
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(clockLoop1, handHours1.gameObject, handHours1.GetComponent<Rigidbody>());
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(clockLoop2, handHours2.gameObject, handHours2.GetComponent<Rigidbody>());
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(clockLoop3, handHours3.gameObject, handHours3.GetComponent<Rigidbody>());
+
+
+            clockLoop1.start();
+            clockLoop2.start();
+            clockLoop3.start();
         }
 
         private IEnumerator UpdateClock1()
@@ -180,10 +198,12 @@ namespace ClockSample
             {
                 successSound?.Play();
                 CompleteClock(clockIndex); // Marquer l'horloge comme complétée
+                FMODUnity.RuntimeManager.PlayOneShot("event:/System/Puzzle/Puz_ClockGood");
             }
             else
             {
                 failureSound?.Play();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/System/Puzzle/Puz_ClockBad");
                 StartCoroutine(HighlightSpotlight(Color.red));
             }
 
@@ -230,6 +250,7 @@ namespace ClockSample
         {
             if (spotlight != null)
             {
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("ClockVictory", 1);
                 spotlight.color = Color.blue;
             }
         }
