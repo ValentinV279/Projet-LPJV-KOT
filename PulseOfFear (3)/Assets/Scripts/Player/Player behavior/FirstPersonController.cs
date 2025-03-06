@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
@@ -19,9 +18,6 @@ public class FirstPersonController : MonoBehaviour
     public AudioClip[] footstepSounds;
     public float stepInterval = 0.5f;
 
-    public GameObject walkingArms;
-    public GameObject clappingArms;
-
     private Vector3 jointOriginalPos;
     private float timer = 0;
     private float yaw = 0.0f;
@@ -29,7 +25,7 @@ public class FirstPersonController : MonoBehaviour
     private bool isGrounded = false;
     private float stepTimer = 0f;
 
-    private Animator animator;
+    public Animator animator; // Public pour assigner dans l'Inspector
 
     void Awake()
     {
@@ -37,15 +33,14 @@ public class FirstPersonController : MonoBehaviour
         jointOriginalPos = joint.localPosition;
         Cursor.lockState = CursorLockMode.Locked;
 
+        if (animator == null)
+            Debug.LogError("Aucun Animator trouvé sur cet objet.");
+
         if (footstepAudioSource == null)
             footstepAudioSource = gameObject.AddComponent<AudioSource>();
 
         if (footstepSounds == null || footstepSounds.Length == 0)
             Debug.LogError("Aucun son de pas assigné dans l'inspecteur.");
-
-        animator = GetComponent<Animator>();
-        if (animator == null)
-            Debug.LogError("Aucun Animator trouvé sur cet objet.");
     }
 
     void Update()
@@ -57,16 +52,18 @@ public class FirstPersonController : MonoBehaviour
         float moveZ = Input.GetAxis("JoystickVertical") + Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveX, 0, moveZ);
-        bool isWalking = movement.magnitude > 0 && isGrounded;
+        bool isWalking = movement.magnitude > 0.1f && isGrounded; // Ajout d'un seuil pour éviter des valeurs proches de 0
         bool isClapping = Input.GetMouseButtonDown(0);
 
-        walkingArms.SetActive(isWalking && !isClapping);
-        clappingArms.SetActive(isClapping);
-        
         if (animator != null)
         {
-            animator.SetFloat("walk", isWalking ? 1 : 0);
-            if (isClapping) animator.SetTrigger("ClapTrigger");
+            animator.SetFloat("Speed", isWalking ? 1f : 0f);
+            
+            if (isClapping)
+            {
+                animator.SetTrigger("Clap");
+                StartCoroutine(ResetClapTrigger());
+            }
         }
 
         if (isWalking)
@@ -78,7 +75,6 @@ public class FirstPersonController : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Units/Alyssa/Charater_footsteps");
                 stepTimer = 0f;
             }
-
             HeadBob();
         }
         else
@@ -120,7 +116,7 @@ public class FirstPersonController : MonoBehaviour
         float lookYMouse = Input.GetAxis("Mouse Y") * mouseSensitivity;
         float lookXController = Input.GetAxis("RightStickHorizontal") * controllerSensitivity;
         float lookYController = Input.GetAxis("RightStickVertical") * controllerSensitivity;
-        
+
         float horizontalRotation = lookXMouse + lookXController;
         float verticalRotation = lookYMouse + lookYController;
 
@@ -161,5 +157,11 @@ public class FirstPersonController : MonoBehaviour
         {
             footstepAudioSource.Stop();
         }
+    }
+
+    IEnumerator ResetClapTrigger()
+    {
+        yield return new WaitForSeconds(0.1f); // Attendre un peu avant de reset
+        animator.ResetTrigger("Clap");
     }
 }
