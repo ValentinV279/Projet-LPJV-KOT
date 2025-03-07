@@ -473,8 +473,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -941,8 +941,7 @@ MonoBehaviour:
   footstepAudioSource: {fileID: 0}
   footstepSounds: []
   stepInterval: 0.5
-  walkingArms: {fileID: 0}
-  clappingArms: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &7981668264365859987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,11 +968,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250607f3a3740cd4ab38b43a0ebc83f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepAudioSource: {fileID: 0}
+  animator: {fileID: 0}
   clapAudioSource: {fileID: 0}
   clapSound: {fileID: 0}
-  walkingArms: {fileID: 0}
-  clappingArms: {fileID: 0}
   clapDuration: 1
 --- !u!4 &4203671254969955398 stripped
 Transform:
