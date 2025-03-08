@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class WardrobeController : MonoBehaviour
 {
@@ -27,10 +29,12 @@ public class WardrobeController : MonoBehaviour
         if (isOpen)
         {
             animator.Play("Amoire_chambre_droite_close");
+            
         }
         else
         {
             animator.Play("Amoire_chambre_droite_open");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_armoire_closed");
         }
 
         isOpen = !isOpen;

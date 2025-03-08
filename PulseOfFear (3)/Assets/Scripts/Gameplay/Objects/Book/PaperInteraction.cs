@@ -132,6 +132,7 @@ public class PaperInteraction : MonoBehaviour
         }
 
         Debug.Log("Papier affiché : " + paperContent);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_pick_up_book");
     }
 
     void ClosePaper()

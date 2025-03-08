@@ -19,7 +19,7 @@ public class SpecialDoor : MonoBehaviour
     {
         if (plaque1.isActivated && plaque2.isActivated)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

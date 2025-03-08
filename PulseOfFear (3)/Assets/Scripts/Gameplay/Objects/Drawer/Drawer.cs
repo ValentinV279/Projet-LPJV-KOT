@@ -1,4 +1,6 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class Drawer : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class Drawer : MonoBehaviour
     public AudioClip openSound; // Son d'ouverture
     public AudioClip closeSound; // Son de fermeture
     public AudioSource audioSource; // Source audio pour jouer les sons
+
+    public EventReference openSoundEvent; // Son d'ouverture
+    public EventReference closeSoundEvent; // Son de fermeture
 
     void Start()
     {
@@ -38,6 +43,8 @@ public class Drawer : MonoBehaviour
         // Joue le son approprié
         PlaySound(isOpen ? closeSound : openSound);
 
+        // Joue le son approprié (ouverture ou fermeture)
+        RuntimeManager.PlayOneShot(isOpen ? closeSoundEvent : openSoundEvent, transform.position);
         // Lance la coroutine pour ouvrir ou fermer le tiroir
         moveCoroutine = StartCoroutine(MoveDrawer(isOpen ? closedPosition : openPosition));
         isOpen = !isOpen; // Bascule l'état

@@ -24,8 +24,13 @@ public class IAEnemyUI : MonoBehaviour
     [SerializeField] GameObject settingsCanvas;
     [SerializeField] GameObject subtitlesCanvas;
 
+    private FMOD.Studio.EventInstance deathTimer; //
+    private FMOD.Studio.EventInstance automatStop; //
+
     void Start()
     {
+        deathTimer = FMODUnity.RuntimeManager.CreateInstance("event:/Ui/Ui_death_timer");///
+        automatStop = FMODUnity.RuntimeManager.CreateInstance("event:/System/Music/Music_time_death");///
         // Initialisation des caméras
         if (enemyCamera != null) enemyCamera.enabled = false;
         if (playerCamera != null) playerCamera.enabled = true;
@@ -88,6 +93,10 @@ public class IAEnemyUI : MonoBehaviour
 
         // Appel des effets de Game Over
         StartCoroutine(FadeOutAndGameOver());
+
+        Debug.Log("LESON COMMENCE ICI");
+        deathTimer.start();
+        automatStop.start();
     }
 
     private void MuteAllAudioExceptEnemy()
@@ -160,5 +169,7 @@ public class IAEnemyUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        deathTimer.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        automatStop.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }

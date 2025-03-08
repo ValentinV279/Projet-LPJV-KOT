@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,8 +10,7 @@ public class BasicDoorController : MonoBehaviour
     public float finalDecelerationFactor = 0.1f; // Facteur de décélération progressive
     public float rotationDuration = 3f; // Durée de la rotation complète
     public float openAngle = 90f; // Angle d'ouverture (positif pour la droite, négatif pour la gauche)
-    public float initialAutoOpenDelay = 5f; // Délai initial avant ouverture (désactivé maintenant)
-    public float subsequentAutoOpenDelay = 10f; // Délai avant réouverture automatique après la première ouverture
+    public float autoOpenDelay = 5f; // Délai avant réouverture automatique (en secondes)
 
     public AudioClip openSound; // Son d'ouverture
     public AudioClip closeSound; // Son de fermeture
@@ -18,7 +18,6 @@ public class BasicDoorController : MonoBehaviour
     private NavMeshObstacle navMeshObstacle; // Référence au NavMeshObstacle
     private bool isRotating = false; // Indique si une rotation est en cours
     private bool isClosed = true; // Indique si la porte est fermée
-    private bool hasBeenOpenedOnce = false; // Vérifie si la porte a été ouverte au moins une fois
     private float currentAngle = 0f; // Suivi de l'angle actuel de la porte
     private float timeSinceClose = 0f; // Temps écoulé depuis la fermeture
 
@@ -46,12 +45,13 @@ public class BasicDoorController : MonoBehaviour
     void Update()
     {
         // Vérifie si la porte doit se réouvrir automatiquement
-        if (isClosed && !isRotating && hasBeenOpenedOnce) // 🔹 Ne s'ouvre automatiquement que si elle a déjà été ouverte au moins une fois
+        if (isClosed && !isRotating)
         {
             timeSinceClose += Time.deltaTime;
-            if (timeSinceClose >= subsequentAutoOpenDelay)
+            if (timeSinceClose >= autoOpenDelay)
             {
-                ToggleDoor(); // Rouvre la porte après 10 secondes
+                ToggleDoor(); // Rouvre la porte
+                
             }
         }
     }
@@ -59,12 +59,6 @@ public class BasicDoorController : MonoBehaviour
     public void ToggleDoor()
     {
         if (isRotating) return; // Empêche une nouvelle rotation si la porte est déjà en mouvement
-
-        // Si c'est la première ouverture, on marque la porte comme ayant été ouverte
-        if (!hasBeenOpenedOnce)
-        {
-            hasBeenOpenedOnce = true;
-        }
 
         // Détermine l'angle cible en fonction de l'état actuel de la porte
         float targetAngle = Mathf.Approximately(currentAngle, 0f) ? openAngle : 0f;
@@ -83,6 +77,9 @@ public class BasicDoorController : MonoBehaviour
 
         // Joue le son approprié via l'AudioSource
         PlaySound(Mathf.Approximately(currentAngle, 0f) ? openSound : closeSound);
+        
+        
+        
 
         // Garde le carving actif, quelle que soit la position de la porte
         if (navMeshObstacle != null)
@@ -99,9 +96,10 @@ public class BasicDoorController : MonoBehaviour
 
         // Lancer la rotation
         StartCoroutine(RotateDoor(targetAngle));
+        
     }
 
-    private IEnumerator RotateDoor(float targetAngle)
+    private System.Collections.IEnumerator RotateDoor(float targetAngle)
     {
         isRotating = true; // Marque la porte comme en rotation
 
@@ -128,6 +126,7 @@ public class BasicDoorController : MonoBehaviour
             if (Mathf.Abs(currentAngle - targetAngle) < 0.1f)
             {
                 break;
+                
             }
 
             elapsedTime += Time.deltaTime;

@@ -50,6 +50,7 @@ public class ExitDoubleDoor : MonoBehaviour
             : initialRotation;
 
         PlaySound(isOpen ? openSound : closeSound);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/System/Music/Music_after_exitdooropen");
         StartCoroutine(RotateDoor());
     }
 

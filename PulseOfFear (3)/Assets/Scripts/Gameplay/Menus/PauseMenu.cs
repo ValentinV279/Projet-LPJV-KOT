@@ -18,9 +18,13 @@ public class PauseMenu : MonoBehaviour
     private bool canPause = false; // Permet ou non de mettre en pause
     private bool isSettingsPanelActive = true; // Indique quel panel est actif (true = settingsPanel, false = journalPanel)
     public MonoBehaviour cameraControlScript; // Référence au script qui gère la rotation de la caméra
+    private FMOD.Studio.EventInstance musicInstance;//
 
     void Start()
     {
+        musicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/System/Music/Music_gameplay");///
+        musicInstance.start(); ///
+
         // Vérifie que les panels sont assignés
         if (settingsPanel == null)
         {
@@ -108,6 +112,8 @@ public class PauseMenu : MonoBehaviour
         if (isPaused)
         {
             puzzleCanvas.SetActive(false);
+            musicInstance.setPaused(true); ///
+            FMODUnity.RuntimeManager.PlayOneShot("event:/System/Music/Music_gameplay_pause");
         }
 
         // Désactive l'Animator du joueur si le jeu est en pause
@@ -131,6 +137,7 @@ public class PauseMenu : MonoBehaviour
         else
         {
             StartCoroutine(ResumeWithCountdown());
+            FMODUnity.RuntimeManager.PlayOneShot("event:/System/Music/Music_gameplay_play_decompte");
         }
     }
 
@@ -158,6 +165,7 @@ public class PauseMenu : MonoBehaviour
         {
             countdownText.text = i.ToString();
             yield return new WaitForSecondsRealtime(1f);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/System/Music/Music_gameplay_play_decompte");
         }
 
         // Cache le texte du décompte
@@ -173,6 +181,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isCountingDown = false;
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/System/Music/Music_gameplay_play");
+        musicInstance.setPaused(false); ///
 
         // Réactive le contrôle de la caméra
         StartCoroutine(EnableCameraControlWithDelay(3f));

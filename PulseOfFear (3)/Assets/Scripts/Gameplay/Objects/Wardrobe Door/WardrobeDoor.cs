@@ -1,7 +1,12 @@
+using FMODUnity;
+using FMOD.Studio;
 using UnityEngine;
 
 public class WardrobeDoor : MonoBehaviour
 {
+
+    public EventReference openSoundEvent; // Son d'ouverture
+    public EventReference closeSoundEvent; // Son de fermeture
     public Transform pivotPoint; // Point de pivot (Empty)
     public float rotationSpeed = 35f; // Vitesse de rotation
     public float finalDecelerationFactor = 0.1f; // Facteur de décélération progressive
@@ -31,6 +36,8 @@ public class WardrobeDoor : MonoBehaviour
 
         // Détermine l'angle cible en fonction de l'état actuel de la porte
         float targetAngle = Mathf.Approximately(currentAngle, 0f) ? openAngle : 0f;
+
+        RuntimeManager.PlayOneShot(Mathf.Approximately(currentAngle, 0f) ? openSoundEvent : closeSoundEvent, transform.position);
 
         // Inverse l'angle d'ouverture pour la prochaine interaction
         openAngle *= -1;

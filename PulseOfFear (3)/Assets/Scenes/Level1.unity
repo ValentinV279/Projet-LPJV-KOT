@@ -8252,6 +8252,20 @@ MonoBehaviour:
   openSound: {fileID: 8300000, guid: 27c07cd0db077aa459dae432bf1ac603, type: 3}
   closeSound: {fileID: 8300000, guid: 6eb7a5877abd3044c9c99459b54e087d, type: 3}
   audioSource: {fileID: 292166393}
+  openSoundEvent:
+    Guid:
+      Data1: 1183289259
+      Data2: 1222104083
+      Data3: 479445395
+      Data4: 882280733
+    Path: event:/Envt/Enviro_action_interract_tiroir_open
+  closeSoundEvent:
+    Guid:
+      Data1: 1668287775
+      Data2: 1258941399
+      Data3: 1605085579
+      Data4: 512807097
+    Path: event:/Envt/Enviro_action_interract_tiroir_closed
 --- !u!82 &292166393
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8387,6 +8401,20 @@ MonoBehaviour:
   openSound: {fileID: 8300000, guid: 27c07cd0db077aa459dae432bf1ac603, type: 3}
   closeSound: {fileID: 8300000, guid: 6eb7a5877abd3044c9c99459b54e087d, type: 3}
   audioSource: {fileID: 292166393}
+  openSoundEvent:
+    Guid:
+      Data1: 1183289259
+      Data2: 1222104083
+      Data3: 479445395
+      Data4: 882280733
+    Path: event:/Envt/Enviro_action_interract_tiroir_open
+  closeSoundEvent:
+    Guid:
+      Data1: 1668287775
+      Data2: 1258941399
+      Data3: 1605085579
+      Data4: 512807097
+    Path: event:/Envt/Enviro_action_interract_tiroir_closed
 --- !u!64 &292166396
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10655,6 +10683,7 @@ GameObject:
   - component: {fileID: 364158564}
   - component: {fileID: 364158565}
   - component: {fileID: 364158566}
+  - component: {fileID: 364158567}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -10762,6 +10791,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &364158567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364158563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1138151244
+      Data2: 1180168616
+      Data3: -370205027
+      Data4: 451649043
+    Path: event:/Envt/Enviro_zone_atelier_four
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &364568391 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bfa0d71efc151e4479d5e33bbe43cda9, type: 3}
@@ -11597,6 +11657,20 @@ MonoBehaviour:
   openSound: {fileID: 8300000, guid: 27c07cd0db077aa459dae432bf1ac603, type: 3}
   closeSound: {fileID: 8300000, guid: 6eb7a5877abd3044c9c99459b54e087d, type: 3}
   audioSource: {fileID: 292166393}
+  openSoundEvent:
+    Guid:
+      Data1: 1183289259
+      Data2: 1222104083
+      Data3: 479445395
+      Data4: 882280733
+    Path: event:/Envt/Enviro_action_interract_tiroir_open
+  closeSoundEvent:
+    Guid:
+      Data1: 1668287775
+      Data2: 1258941399
+      Data3: 1605085579
+      Data4: 512807097
+    Path: event:/Envt/Enviro_action_interract_tiroir_closed
 --- !u!64 &391306876
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23929,6 +24003,20 @@ MonoBehaviour:
   openSound: {fileID: 8300000, guid: 27c07cd0db077aa459dae432bf1ac603, type: 3}
   closeSound: {fileID: 8300000, guid: 6eb7a5877abd3044c9c99459b54e087d, type: 3}
   audioSource: {fileID: 1673796111}
+  openSoundEvent:
+    Guid:
+      Data1: 1183289259
+      Data2: 1222104083
+      Data3: 479445395
+      Data4: 882280733
+    Path: event:/Envt/Enviro_action_interract_tiroir_open
+  closeSoundEvent:
+    Guid:
+      Data1: 1668287775
+      Data2: 1258941399
+      Data3: 1605085579
+      Data4: 512807097
+    Path: event:/Envt/Enviro_action_interract_tiroir_closed
 --- !u!114 &770324229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25368,7 +25456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.036445353, g: 0.21389556, b: 0.3679245, a: 0.78431374}
+  m_Color: {r: 0.49411765, g: 0.33333334, b: 0.17254902, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -28108,6 +28196,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97f9ea9d266bb948ae909c977d96de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openSoundEvent:
+    Guid:
+      Data1: -1872114631
+      Data2: 1126435900
+      Data3: 1948271246
+      Data4: -1850403699
+    Path: event:/Envt/Enviro_action_armoire_open
+  closeSoundEvent:
+    Guid:
+      Data1: -536433646
+      Data2: 1139847203
+      Data3: 97572999
+      Data4: -1696181192
+    Path: event:/Envt/Enviro_action_armoire_closed
   pivotPoint: {fileID: 1022514272}
   rotationSpeed: 40
   finalDecelerationFactor: 0.1
@@ -29844,6 +29946,20 @@ MonoBehaviour:
   openSound: {fileID: 8300000, guid: 27c07cd0db077aa459dae432bf1ac603, type: 3}
   closeSound: {fileID: 8300000, guid: 6eb7a5877abd3044c9c99459b54e087d, type: 3}
   audioSource: {fileID: 1673796111}
+  openSoundEvent:
+    Guid:
+      Data1: 1183289259
+      Data2: 1222104083
+      Data3: 479445395
+      Data4: 882280733
+    Path: event:/Envt/Enviro_action_interract_tiroir_open
+  closeSoundEvent:
+    Guid:
+      Data1: 1668287775
+      Data2: 1258941399
+      Data3: 1605085579
+      Data4: 512807097
+    Path: event:/Envt/Enviro_action_interract_tiroir_closed
 --- !u!114 &1015593156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31432,6 +31548,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7457440793645248641, guid: ff0441a122378774182883fc5901da1f, type: 3}
+      propertyPath: EventPlayTrigger
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 9005359660700149428, guid: ff0441a122378774182883fc5901da1f, type: 3}
       propertyPath: m_Name
       value: GameAudioManager
@@ -32512,7 +32632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.53
+      value: 14.19
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32520,7 +32640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.05
+      value: -21.91
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33052,6 +33172,20 @@ MonoBehaviour:
   openSound: {fileID: 8300000, guid: 27c07cd0db077aa459dae432bf1ac603, type: 3}
   closeSound: {fileID: 8300000, guid: 6eb7a5877abd3044c9c99459b54e087d, type: 3}
   audioSource: {fileID: 1673796111}
+  openSoundEvent:
+    Guid:
+      Data1: 1183289259
+      Data2: 1222104083
+      Data3: 479445395
+      Data4: 882280733
+    Path: event:/Envt/Enviro_action_interract_tiroir_open
+  closeSoundEvent:
+    Guid:
+      Data1: 1668287775
+      Data2: 1258941399
+      Data3: 1605085579
+      Data4: 512807097
+    Path: event:/Envt/Enviro_action_interract_tiroir_closed
 --- !u!114 &1099540767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35661,8 +35795,7 @@ MonoBehaviour:
   finalDecelerationFactor: 0.1
   rotationDuration: 3
   openAngle: 90
-  initialAutoOpenDelay: 5
-  subsequentAutoOpenDelay: 10
+  autoOpenDelay: 5
   openSound: {fileID: 8300000, guid: 44b63b0db16ce624b97e45ebde0a0971, type: 3}
   closeSound: {fileID: 8300000, guid: 44b63b0db16ce624b97e45ebde0a0971, type: 3}
 --- !u!82 &1199973791
@@ -46352,6 +46485,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97f9ea9d266bb948ae909c977d96de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openSoundEvent:
+    Guid:
+      Data1: -1872114631
+      Data2: 1126435900
+      Data3: 1948271246
+      Data4: -1850403699
+    Path: event:/Envt/Enviro_action_armoire_open
+  closeSoundEvent:
+    Guid:
+      Data1: -536433646
+      Data2: 1139847203
+      Data3: 97572999
+      Data4: -1696181192
+    Path: event:/Envt/Enviro_action_armoire_closed
   pivotPoint: {fileID: 646106798}
   rotationSpeed: 40
   finalDecelerationFactor: 0.1
@@ -56065,7 +56212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.043787822, b: 0.043787822, a: 0.8235294}
+  m_Color: {r: 0.40392157, g: 0.3254902, b: 0.24313726, a: 0.8235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
