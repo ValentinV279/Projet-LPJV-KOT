@@ -6,6 +6,7 @@ using System.Collections;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject settingsPanel; // Panel des paramètres
+    public GameObject journalPanel; // Panel du journal de bord et des missions
     public GameObject reticleCanvas; // Canvas du réticule
     public GameObject puzzleCanvas; // Canvas des puzzles
     public TMP_Text countdownText; // Texte du décompte
@@ -15,40 +16,45 @@ public class PauseMenu : MonoBehaviour
     private bool isCountingDown = false; // Empêche de rouvrir le menu pendant le décompte
     private float timeSinceSceneStart = 0f; // Temps écoulé depuis le lancement de la scène
     private bool canPause = false; // Permet ou non de mettre en pause
+    private bool isSettingsPanelActive = true; // Indique quel panel est actif (true = settingsPanel, false = journalPanel)
     public MonoBehaviour cameraControlScript; // Référence au script qui gère la rotation de la caméra
 
     void Start()
     {
-        // Vérifie que le panel est assigné
+        // Vérifie que les panels sont assignés
         if (settingsPanel == null)
         {
             Debug.LogError("Le panel des paramètres n'est pas assigné dans l'Inspector.");
             return;
         }
 
-        // Vérifie que le ReticleCanvas est assigné
+        if (journalPanel == null)
+        {
+            Debug.LogError("Le panel du journal n'est pas assigné dans l'Inspector.");
+            return;
+        }
+
         if (reticleCanvas == null)
         {
             Debug.LogError("Le ReticleCanvas n'est pas assigné dans l'Inspector.");
             return;
         }
 
-        // Vérifie que le PuzzleCanvas est assigné
         if (puzzleCanvas == null)
         {
             Debug.LogError("Le PuzzleCanvas n'est pas assigné dans l'Inspector.");
             return;
         }
 
-        // Vérifie que le texte du décompte est assigné
         if (countdownText == null)
         {
             Debug.LogError("Le texte du décompte n'est pas assigné dans l'Inspector.");
             return;
         }
 
-        // Assure que le panel et le texte sont désactivés au début
+        // Désactive les panels au démarrage
         settingsPanel.SetActive(false);
+        journalPanel.SetActive(false);
         countdownText.gameObject.SetActive(false);
 
         // Verrouille la souris au démarrage
@@ -67,10 +73,23 @@ public class PauseMenu : MonoBehaviour
             canPause = true;
         }
 
-        // Vérifie si le joueur appuie sur Echap (clavier) ou sur le bouton pause de la manette via l'Input Manager
+        // Ouvre ou ferme le menu pause
         if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && !isCountingDown && canPause)
         {
             TogglePauseMenu();
+        }
+
+        // Switch entre les panels seulement si le menu est ouvert
+        if (isPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                SwitchPanel(false); // Aller au panel du journal
+            }
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                SwitchPanel(true); // Aller au panel des paramètres
+            }
         }
     }
 
@@ -80,6 +99,8 @@ public class PauseMenu : MonoBehaviour
 
         // Active ou désactive le panel
         settingsPanel.SetActive(isPaused);
+        journalPanel.SetActive(false); // Toujours commencer sur le settingsPanel
+        isSettingsPanelActive = true;
 
         // Active ou désactive le ReticleCanvas et le PuzzleCanvas
         reticleCanvas.SetActive(!isPaused);
@@ -113,6 +134,13 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    void SwitchPanel(bool showSettingsPanel)
+    {
+        isSettingsPanelActive = showSettingsPanel;
+        settingsPanel.SetActive(isSettingsPanelActive);
+        journalPanel.SetActive(!isSettingsPanelActive);
+    }
+
     IEnumerator ResumeWithCountdown()
     {
         isCountingDown = true;
@@ -138,6 +166,7 @@ public class PauseMenu : MonoBehaviour
         // Relance le jeu après le décompte
         isPaused = false;
         settingsPanel.SetActive(false);
+        journalPanel.SetActive(false);
         reticleCanvas.SetActive(true);
         puzzleCanvas.SetActive(true);
         Time.timeScale = 1;
@@ -151,9 +180,9 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame() // Relancer le jeu
     {
-        // Méthode appelée via un bouton pour reprendre le jeu
         isPaused = false;
         settingsPanel.SetActive(false);
+        journalPanel.SetActive(false);
         reticleCanvas.SetActive(true);
         puzzleCanvas.SetActive(true);
         StartCoroutine(ResumeWithCountdown());
