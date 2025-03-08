@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 1222780791}
   - component: {fileID: 1222780790}
   - component: {fileID: 1222780792}
+  - component: {fileID: 1222780793}
   m_Layer: 0
   m_Name: CinematicManager
   m_TagString: Untagged
@@ -495,24 +496,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1222780791}
-  voiceOverSource: {fileID: 1222780790}
   bgmSource: {fileID: 1222780792}
   videoClips:
-  - {fileID: 32900000, guid: d261fa91a3617154fbee9b206a5e6fd6, type: 3}
-  - {fileID: 32900000, guid: 1e64e078fefa92e47a536b4d29f899a6, type: 3}
-  - {fileID: 32900000, guid: a45cb96ce2732794d9f9726d32aa18bc, type: 3}
-  - {fileID: 32900000, guid: 9cce892260779a44894e251176903d97, type: 3}
-  - {fileID: 32900000, guid: 4afab87f1b78f684fb67aa7c403c638a, type: 3}
-  - {fileID: 32900000, guid: c09290b9d4298ef42879063d56c76f99, type: 3}
-  - {fileID: 32900000, guid: d86f0650e62022144b417df17e97d997, type: 3}
-  voiceOverClips:
-  - {fileID: 8300000, guid: 9ffb5963c6599fb4994271539ff3b877, type: 3}
-  - {fileID: 8300000, guid: 3b1a105708d305448ba77433d72c1aa8, type: 3}
-  - {fileID: 8300000, guid: 4adf4fc2827488c4f8b23c651999ed44, type: 3}
-  - {fileID: 8300000, guid: 7aeed913d703abd409728b436c8fd6a5, type: 3}
-  - {fileID: 8300000, guid: a8992c98876593f449e3672f5696de15, type: 3}
-  - {fileID: 8300000, guid: 07f20602dc70905408a0e2db4d07bab1, type: 3}
-  - {fileID: 8300000, guid: a5dd084e5a84e63448767fe5c2278ffa, type: 3}
+  - {fileID: 32900000, guid: 2a2a5f48614807041991aeb91dd89f3e, type: 3}
   bgm1: {fileID: 8300000, guid: 38827196df06010488734fdf2a59756e, type: 3}
   bgm2: {fileID: 8300000, guid: 5ec4e59c1804673438d2ff592fd4965f, type: 3}
 --- !u!4 &1222780789
@@ -758,6 +744,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1222780793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222780787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1871283796
+      Data2: 1220795486
+      Data3: -2087616604
+      Data4: 1122661901
+    Path: event:/System/Music/Music_cinematique_voix-off
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1484948102
 GameObject:
   m_ObjectHideFlags: 0

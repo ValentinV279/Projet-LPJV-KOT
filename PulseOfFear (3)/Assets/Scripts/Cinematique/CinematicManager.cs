@@ -6,10 +6,8 @@ using System.Collections;
 public class CinematicManager : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public AudioSource voiceOverSource; // Voix off
     public AudioSource bgmSource;       // Musique de fond
     public VideoClip[] videoClips;
-    public AudioClip[] voiceOverClips;
     
     public AudioClip bgm1; // Musique pour les plans 1-2
     public AudioClip bgm2; // Musique pour les plans 4-6
@@ -20,9 +18,11 @@ public class CinematicManager : MonoBehaviour
 
     void Start()
     {
-        if (videoClips.Length == 0 || voiceOverClips.Length == 0)
+        currentClipIndex = 0;
+        
+        if (videoClips.Length == 0)
         {
-            Debug.LogError("Les tableaux videoClips ou voiceOverClips sont vides !");
+            Debug.LogError("Le tableau videoClips est vide !");
             return;
         }
 
@@ -31,7 +31,7 @@ public class CinematicManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !isSkipping) // Skip vidéo avec Entrée
+        if (Input.GetKeyDown(KeyCode.Return) && !isSkipping)
         {
             isSkipping = true;
             SkipClip();
@@ -40,38 +40,36 @@ public class CinematicManager : MonoBehaviour
 
     void PlayClip(int index)
     {
-        if (index >= videoClips.Length || index >= voiceOverClips.Length) 
+        if (index >= videoClips.Length)
         {
             Debug.Log("Cinematic finished!");
-            return; // Fin de la cinématique
+            StartCoroutine(LoadNextScene());
+            return;
         }
 
         Debug.Log("Lecture du plan " + index);
 
         if (currentCoroutine != null)
         {
-            StopCoroutine(currentCoroutine); // Stopper la lecture actuelle proprement
+            StopCoroutine(currentCoroutine);
         }
-        currentCoroutine = StartCoroutine(PlayClipWithAudio(index));
+        currentCoroutine = StartCoroutine(PlayClipWithDuration(index));
     }
 
-    IEnumerator PlayClipWithAudio(int index)
+    IEnumerator PlayClipWithDuration(int index)
     {
         isSkipping = false;
 
-        // Charger la vidéo et la voix off
         videoPlayer.Stop();
-        voiceOverSource.Stop();
-
-        if (videoClips[index] == null || voiceOverClips[index] == null)
+        
+        if (videoClips[index] == null)
         {
-            Debug.LogError("Le clip vidéo ou audio à l'index " + index + " est manquant !");
+            Debug.LogError("Le clip vidéo à l'index " + index + " est manquant !");
             NextClip();
             yield break;
         }
 
         videoPlayer.clip = videoClips[index];
-        voiceOverSource.clip = voiceOverClips[index];
 
         videoPlayer.Prepare();
         while (!videoPlayer.isPrepared)
@@ -79,31 +77,31 @@ public class CinematicManager : MonoBehaviour
             yield return null;
         }
 
-        // Démarrer la vidéo et la voix off
         videoPlayer.Play();
-        voiceOverSource.Play();
 
-        // Gestion de la musique de fond (ne pas perturber la voix off)
         if (index == 0) 
         {
-            PlayBGM(bgm1); // Démarrer la musique 1
+            PlayBGM(bgm1);
         }
         else if (index == 2) 
         {
-            StopBGM(); // Arrêter la musique 1 à la fin du plan 2
+            StopBGM();
         }
         else if (index == 3) 
         {
-            PlayBGM(bgm2); // Démarrer la musique 2
+            PlayBGM(bgm2);
         }
         else if (index == 6) 
         {
-            StopBGM(); // Arrêter la musique 2 à la fin du plan 6
+            StopBGM();
         }
 
-        // Attendre uniquement la fin de la voix off avant de passer au prochain plan
-        while (voiceOverSource.isPlaying && !isSkipping)
+        float clipDuration = (float)videoPlayer.clip.length;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < clipDuration && !isSkipping)
         {
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 
@@ -114,12 +112,12 @@ public class CinematicManager : MonoBehaviour
     {
         if (isSkipping)
         {
-            isSkipping = false; // Réinitialiser le skip pour éviter plusieurs sauts
+            isSkipping = false;
         }
 
         currentClipIndex++;
 
-        if (currentClipIndex < videoClips.Length && currentClipIndex < voiceOverClips.Length)
+        if (currentClipIndex < videoClips.Length)
         {
             PlayClip(currentClipIndex);
         }
@@ -132,7 +130,7 @@ public class CinematicManager : MonoBehaviour
 
     void SkipClip()
     {
-        if (currentClipIndex < videoClips.Length - 1) // Vérifier qu'on ne dépasse pas
+        if (currentClipIndex < videoClips.Length - 1)
         {
             currentClipIndex++;
             PlayClip(currentClipIndex);
@@ -156,14 +154,12 @@ public class CinematicManager : MonoBehaviour
 
     void StopBGM()
     {
-        bgmSource.Stop(); // Arrêt immédiat de la musique
+        bgmSource.Stop();
     }
 
     IEnumerator LoadNextScene()
     {
-        // Ajouter un petit délai pour laisser la musique se couper avant de charger la scène
         yield return new WaitForSeconds(1.0f);
-        // Charger la prochaine scène (ajouter le nom de votre scène ici)
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
