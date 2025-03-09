@@ -22090,7 +22090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea9641e780640a4bb25b9c322e8db23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TasksComplete: 3
+  TasksComplete: 0
   TotalTasks: 4
   exitDoors:
   - {fileID: 1435855037}
