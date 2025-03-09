@@ -3,12 +3,16 @@ using UnityEngine;
 
 public class GearSpawner : MonoBehaviour
 {
-    [Header("Settings")]
-    public List<Transform> gearSpawnPoints; // Liste des spawn points
-    public GameObject gearPrefab; // Prefab de l'engrenage
+    [System.Serializable]
+    public class Room
+    {
+        public string roomName;
+        public List<Transform> spawnPoints; // Liste des spawn points dans la pièce
+    }
 
-    [Range(1, 3)]
-    public int numberOfGearsToSpawn = 2; // Nombre d'engrenages à faire apparaître
+    [Header("Settings")]
+    public List<Room> rooms; // Liste des pièces avec leurs spawn points
+    public GameObject gearPrefab; // Prefab de l'engrenage
 
     void Start()
     {
@@ -17,9 +21,9 @@ public class GearSpawner : MonoBehaviour
 
     private void SpawnGears()
     {
-        if (gearSpawnPoints == null || gearSpawnPoints.Count == 0)
+        if (rooms == null || rooms.Count == 0)
         {
-            Debug.LogError("Aucun point de spawn assigné dans GearSpawner.");
+            Debug.LogError("Aucune pièce assignée dans GearSpawner.");
             return;
         }
 
@@ -29,26 +33,20 @@ public class GearSpawner : MonoBehaviour
             return;
         }
 
-        // Copie des spawn points pour éviter les doublons
-        List<Transform> availableSpawnPoints = new List<Transform>(gearSpawnPoints);
-
-        for (int i = 0; i < numberOfGearsToSpawn; i++)
+        foreach (Room room in rooms)
         {
-            if (availableSpawnPoints.Count == 0)
+            if (room.spawnPoints == null || room.spawnPoints.Count == 0)
             {
-                Debug.LogWarning("Nombre de spawn points insuffisant pour le nombre d'engrenages à générer.");
-                break;
+                Debug.LogWarning($"La pièce {room.roomName} n'a aucun spawn point défini.");
+                continue;
             }
 
-            // Sélectionne un spawn point aléatoire
-            int randomIndex = Random.Range(0, availableSpawnPoints.Count);
-            Transform spawnPoint = availableSpawnPoints[randomIndex];
-
-            // Instancie l'engrenage au spawn point
-            Instantiate(gearPrefab, spawnPoint.position, spawnPoint.rotation);
-
-            // Retire le spawn point utilisé
-            availableSpawnPoints.RemoveAt(randomIndex);
+            // Sélection aléatoire d'un spawn point dans la pièce
+            int randomIndex = Random.Range(0, room.spawnPoints.Count);
+            Transform selectedSpawnPoint = room.spawnPoints[randomIndex];
+            
+            // Instancie l'engrenage au spawn point sélectionné
+            Instantiate(gearPrefab, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
         }
     }
 }
