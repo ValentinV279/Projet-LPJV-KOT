@@ -11596,17 +11596,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
---- !u!114 &389954864 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6190648101683066610, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
-  m_PrefabInstance: {fileID: 1087304821}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181877398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &390300200
 GameObject:
   m_ObjectHideFlags: 0
@@ -32232,7 +32221,7 @@ MonoBehaviour:
   puzzleCanvas: {fileID: 570451107}
   countdownText: {fileID: 1312305979}
   playerAnimator: {fileID: 1443146558}
-  cameraControlScript: {fileID: 389954864}
+  cameraControlScript: {fileID: 1443146561}
 --- !u!1001 &1084538719
 PrefabInstance:
   m_ObjectHideFlags: 0

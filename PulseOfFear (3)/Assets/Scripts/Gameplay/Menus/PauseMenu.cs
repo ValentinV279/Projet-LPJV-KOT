@@ -11,50 +11,20 @@ public class PauseMenu : MonoBehaviour
     public GameObject puzzleCanvas; // Canvas des puzzles
     public TMP_Text countdownText; // Texte du décompte
     public Animator playerAnimator; // Référence à l'Animator du joueur
+    public MonoBehaviour cameraControlScript; // Référence au script qui gère la rotation de la caméra
 
     private bool isPaused = false; // État du jeu (en pause ou non)
     private bool isCountingDown = false; // Empêche de rouvrir le menu pendant le décompte
     private float timeSinceSceneStart = 0f; // Temps écoulé depuis le lancement de la scène
     private bool canPause = false; // Permet ou non de mettre en pause
     private bool isSettingsPanelActive = true; // Indique quel panel est actif (true = settingsPanel, false = journalPanel)
-    public MonoBehaviour cameraControlScript; // Référence au script qui gère la rotation de la caméra
-    private FMOD.Studio.EventInstance musicInstance;//
+
+    private FMOD.Studio.EventInstance musicInstance; // Instance musicale FMOD
 
     void Start()
     {
-        musicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/System/Music/Music_gameplay");///
-        musicInstance.start(); ///
-
-        // Vérifie que les panels sont assignés
-        if (settingsPanel == null)
-        {
-            Debug.LogError("Le panel des paramètres n'est pas assigné dans l'Inspector.");
-            return;
-        }
-
-        if (journalPanel == null)
-        {
-            Debug.LogError("Le panel du journal n'est pas assigné dans l'Inspector.");
-            return;
-        }
-
-        if (reticleCanvas == null)
-        {
-            Debug.LogError("Le ReticleCanvas n'est pas assigné dans l'Inspector.");
-            return;
-        }
-
-        if (puzzleCanvas == null)
-        {
-            Debug.LogError("Le PuzzleCanvas n'est pas assigné dans l'Inspector.");
-            return;
-        }
-
-        if (countdownText == null)
-        {
-            Debug.LogError("Le texte du décompte n'est pas assigné dans l'Inspector.");
-            return;
-        }
+        musicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/System/Music/Music_gameplay");
+        musicInstance.start();
 
         // Désactive les panels au démarrage
         settingsPanel.SetActive(false);
@@ -112,8 +82,12 @@ public class PauseMenu : MonoBehaviour
         if (isPaused)
         {
             puzzleCanvas.SetActive(false);
-            musicInstance.setPaused(true); ///
+            musicInstance.setPaused(true);
             FMODUnity.RuntimeManager.PlayOneShot("event:/System/Music/Music_gameplay_pause");
+
+            // Désactiver le contrôle de la caméra
+            if (cameraControlScript != null)
+                cameraControlScript.enabled = false; // Désactive le script de la caméra
         }
 
         // Désactive l'Animator du joueur si le jeu est en pause
@@ -121,9 +95,6 @@ public class PauseMenu : MonoBehaviour
         {
             playerAnimator.enabled = !isPaused;
         }
-
-        // Désactive le script de contrôle de la caméra lorsque le jeu est en pause
-        if (cameraControlScript != null) cameraControlScript.enabled = !isPaused;
 
         // Met le jeu en pause ou le relance
         Time.timeScale = isPaused ? 0 : 1;
@@ -183,10 +154,11 @@ public class PauseMenu : MonoBehaviour
         isCountingDown = false;
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/System/Music/Music_gameplay_play");
-        musicInstance.setPaused(false); ///
+        musicInstance.setPaused(false);
 
         // Réactive le contrôle de la caméra
-        StartCoroutine(EnableCameraControlWithDelay(3f));
+        if (cameraControlScript != null)
+            cameraControlScript.enabled = true; // Réactive le script de la caméra
     }
 
     public void ResumeGame() // Relancer le jeu
@@ -197,13 +169,5 @@ public class PauseMenu : MonoBehaviour
         reticleCanvas.SetActive(true);
         puzzleCanvas.SetActive(true);
         StartCoroutine(ResumeWithCountdown());
-    }
-
-    private IEnumerator EnableCameraControlWithDelay(float delay) // Attendre 3sec avant de réactiver ce script
-    {
-        yield return new WaitForSecondsRealtime(delay);
-
-        if (cameraControlScript != null)
-            cameraControlScript.enabled = true;
     }
 }
