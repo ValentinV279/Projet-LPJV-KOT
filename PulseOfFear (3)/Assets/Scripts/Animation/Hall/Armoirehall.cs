@@ -27,10 +27,12 @@ public class DoorHall : MonoBehaviour
         if (isOpen)
         {
             animator.Play("doorhallclose");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_interract_porte_close", GetComponent<Transform>().position);
         }
         else
         {
             animator.Play("doorhallopen");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_interract_porte_open", GetComponent<Transform>().position);
         }
 
         isOpen = !isOpen;

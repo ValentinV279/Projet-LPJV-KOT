@@ -29,12 +29,13 @@ public class WardrobeController : MonoBehaviour
         if (isOpen)
         {
             animator.Play("Amoire_chambre_droite_close");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_interract_porte_open", GetComponent<Transform>().position);
             
         }
         else
         {
             animator.Play("Amoire_chambre_droite_open");
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_armoire_closed");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_interract_porte_close", GetComponent<Transform>().position);
         }
 
         isOpen = !isOpen;

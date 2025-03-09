@@ -12,7 +12,7 @@ public class GearSpawner : MonoBehaviour
 
     [Header("Settings")]
     public List<Room> rooms; // Liste des pièces avec leurs spawn points
-    public GameObject gearPrefab; // Prefab de l'engrenage
+    public GameObject gearPrefab; // Prefab d'engrenage
 
     void Start()
     {
@@ -45,8 +45,9 @@ public class GearSpawner : MonoBehaviour
             int randomIndex = Random.Range(0, room.spawnPoints.Count);
             Transform selectedSpawnPoint = room.spawnPoints[randomIndex];
             
-            // Instancie l'engrenage au spawn point sélectionné
-            Instantiate(gearPrefab, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+            // Instancie l'engrenage au spawn point sélectionné et le rattache à celui-ci
+            GameObject spawnedGear = Instantiate(gearPrefab, selectedSpawnPoint.position, selectedSpawnPoint.rotation);
+            spawnedGear.transform.parent = selectedSpawnPoint;
         }
     }
 }

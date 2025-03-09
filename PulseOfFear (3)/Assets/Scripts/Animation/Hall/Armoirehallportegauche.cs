@@ -27,10 +27,12 @@ public class Armoirehallportegauche : MonoBehaviour
         if (isOpen)
         {
             animator.Play("armoirHallLeftclose");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_interract_porte_close", GetComponent<Transform>().position);
         }
         else
         {
             animator.Play("armoirHallLeftopen");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Envt/Enviro_action_interract_porte_open", GetComponent<Transform>().position);
         }
 
         isOpen = !isOpen;
