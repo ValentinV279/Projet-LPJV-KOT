@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7289342014986051159}
   - component: {fileID: 921942033144495271}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GearPrefab
   m_TagString: Gear
   m_Icon: {fileID: 0}
