@@ -29,6 +29,8 @@ TagManager:
   - TiroirAtelier3
   - TiroirAtelier2
   - TiroirAtelier1
+  - doorHall1
+  - DoorHall1
   layers:
   - Default
   - TransparentFX

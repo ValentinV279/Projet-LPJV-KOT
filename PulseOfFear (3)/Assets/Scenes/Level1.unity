@@ -16343,20 +16343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1e8821b71b9564995b7d932d478e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms:
-  - roomName: Chambre
-    spawnPoints:
-    - {fileID: 1752724258}
-  - roomName: Debarras
-    spawnPoints:
-    - {fileID: 1766348279}
-  - roomName: Autres
-    spawnPoints:
-    - {fileID: 1904333199}
-    - {fileID: 1958705166}
-    - {fileID: 1449836561}
-    - {fileID: 1541131289}
-    - {fileID: 482443523}
+  rooms: []
   gearPrefab: {fileID: 6282057776883238588, guid: 38a96dc833afa8444bfc4f064b1de54e, type: 3}
 --- !u!1001 &513257836
 PrefabInstance:
@@ -19393,8 +19380,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.009000001, y: 0.0010621712, z: 0.024001218}
-  m_Center: {x: 0.004499925, y: 0.00046465613, z: 0.011956713}
+  m_Size: {x: 0.009000001, y: 0.001973567, z: 0.024001218}
+  m_Center: {x: 0.0044999253, y: 0.0009203541, z: 0.011956713}
 --- !u!208 &590598487
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -32508,7 +32495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.19
+      value: 14.91
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32516,7 +32503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.91
+      value: 14.62
       objectReference: {fileID: 0}
     - target: {fileID: 4203671254969955398, guid: fc4803e1e9bcb614880a85aa81056904, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73556,6 +73543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 756650625971834289, guid: 9af6055d77a8e654fb75d2155fe2a427, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1544949126461113382, guid: 9af6055d77a8e654fb75d2155fe2a427, type: 3}
       propertyPath: target
       value: 
